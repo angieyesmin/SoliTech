@@ -25,9 +25,8 @@ function ReportarIncidentes() {
 
   return (
     <div className="reportar-container">
-      {/* SIDEBAR */}
       <aside className="reportar-sidebar">
-        <h2 className="logo">SoliTech</h2>
+        <h2 className="logo-text">SoliTech</h2>  {/* ← logo-text */}
         <ul>
           <li>Inicio</li>
           <li className="active">Reportar Incidencia</li>
@@ -35,23 +34,19 @@ function ReportarIncidentes() {
         </ul>
       </aside>
 
-      {/* HEADER */}
       <header className="reportar-header">
         <div className="header-left">
           <h1>Reportar Incidencia</h1>
           <p>Completa el formulario para registrar tu solicitud</p>
         </div>
-
         <div className="header-right">
           <span className="bell">🔔</span>
           <div className="avatar">MA</div>
         </div>
       </header>
 
-      {/* MAIN */}
       <main className="reportar-main">
         <div className="container-form">
-          {/* STEPS */}
           <div className="steps">
             <div className="step active">
               <div className="circle">1</div>
@@ -67,8 +62,7 @@ function ReportarIncidentes() {
             </div>
           </div>
 
-          {/* FORM */}
-          <form className="card" onSubmit={handleSubmit}>
+          <form className="reportar-card" onSubmit={handleSubmit}>  {/* ← reportar-card */}
             <h2>Nueva incidencia</h2>
             <small>Campos obligatorios *</small>
 
@@ -88,14 +82,12 @@ function ReportarIncidentes() {
               >
                 🔴 Alta
               </div>
-
               <div
                 className={`prioridad-card media ${prioridad === "media" ? "active" : ""}`}
                 onClick={() => setPrioridad("media")}
               >
                 🟡 Media
               </div>
-
               <div
                 className={`prioridad-card baja ${prioridad === "baja" ? "active" : ""}`}
                 onClick={() => setPrioridad("baja")}
@@ -107,48 +99,23 @@ function ReportarIncidentes() {
             <label>Descripción *</label>
             <textarea placeholder="Describe el problema..." required />
 
-            {/* UBICACIÓN */}
             <label>Ubicación *</label>
-            <div className="row">
-              <input
-                type="text"
-                placeholder="Ej. Edificio A, Laboratorio 3"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Referencia adicional (aula, piso, área)"
-              />
+            <div className="row-fields">  {/* ← row-fields */}
+              <input type="text" placeholder="Ej. Edificio A, Laboratorio 3" required />
+              <input type="text" placeholder="Referencia adicional (aula, piso, área)" />
             </div>
 
-            {/* EVIDENCIA */}
             <label>Adjuntar evidencia</label>
             <div className="file-upload" onClick={handleClick}>
               <div className="upload-icon">📁</div>
-
               <p className="upload-title">Arrastra y suelta archivos aquí</p>
-
-              <p className="upload-sub">
-                o haz clic para seleccionar desde tu dispositivo
-              </p>
-
-              <button type="button" className="btn-upload">
-                Seleccionar archivo
-              </button>
-
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
-                hidden
-              />
-
+              <p className="upload-sub">o haz clic para seleccionar desde tu dispositivo</p>
+              <button type="button" className="btn-upload">Seleccionar archivo</button>
+              <input type="file" ref={fileInputRef} onChange={handleFileChange} hidden />
               {fileName && <p className="file-name">Archivo: {fileName}</p>}
             </div>
 
-            <button type="submit" className="btn-enviar">
-              Enviar Reporte
-            </button>
+            <button type="submit" className="btn-enviar">Enviar Reporte</button>
           </form>
         </div>
       </main>
