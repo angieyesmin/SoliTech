@@ -1,17 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== REGISTER PAGE - AISLADO ===== */
+.register-page {
   font-family: "Segoe UI", sans-serif;
 }
 
-.container {
+.register-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-page .container {
   display: flex;
   height: 100vh;
 }
 
 /* ===== LEFT ===== */
-.left {
+.register-page .left {
   width: 40%;
   background: linear-gradient(135deg, #0f2a44, #0b1f33);
   color: white;
@@ -20,56 +24,56 @@
   justify-content: center;
 }
 
-.left-content {
+.register-page .left-content {
   width: 80%;
 }
 
-.logo {
+.register-page .register-logo {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
 }
 
-.logo img {
+.register-page .register-logo img {
   width: 40px;
 }
 
-.left h1 {
+.register-page .left h1 {
   font-size: 28px;
   margin-bottom: 15px;
 }
 
-.left p {
+.register-page .left p {
   font-size: 14px;
   opacity: 0.8;
   margin-bottom: 30px;
 }
 
-.features {
+.register-page .features {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.feature {
+.register-page .feature {
   display: flex;
   gap: 10px;
   align-items: flex-start;
 }
 
-.feature span {
+.register-page .feature span {
   font-size: 20px;
 }
 
-.footer {
+.register-page .footer {
   margin-top: 40px;
   font-size: 12px;
   opacity: 0.6;
 }
 
 /* ===== RIGHT ===== */
-.right {
+.register-page .right {
   width: 60%;
   background: #f5f7fa;
   display: flex;
@@ -77,8 +81,8 @@
   justify-content: center;
 }
 
-/* 🔥 CONTENEDOR MEJORADO */
-.form-container {
+/* CONTENEDOR MEJORADO */
+.register-page .form-container {
   background: white;
   padding: 45px 40px;
   border-radius: 18px;
@@ -86,43 +90,43 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
-.form-header {
+.register-page .form-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.form-header img {
+.register-page .form-header img {
   width: 50px;
   margin-bottom: 10px;
 }
 
-.form-header h2 {
+.register-page .form-header h2 {
   margin-bottom: 5px;
 }
 
-.subtitle {
+.register-page .subtitle {
   font-size: 14px;
   color: gray;
   margin-bottom: 20px;
 }
 
-/* 🔥 FORM */
-form {
+/* FORM - YA NO AFECTA A TODOS LOS FORM */
+.register-page form {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-/* 🔥 LABELS */
-label {
+/* LABELS - YA NO AFECTA A TODOS LOS LABEL */
+.register-page label {
   margin: 12px 0 6px;
   font-size: 13px;
   font-weight: 600;
   color: #374151;
 }
 
-/* 🔥 INPUTS COMO LA IMAGEN */
-input {
+/* INPUTS - YA NO AFECTA A TODOS LOS INPUT */
+.register-page input {
   padding: 12px 14px;
   border-radius: 10px;
   border: 1px solid #e0e3e7;
@@ -130,64 +134,15 @@ input {
   font-size: 14px;
   outline: none;
   transition: 0.2s;
-  color: #000000; /* 👈 ESTO SOLUCIONA TODO */
+  color: #000000;
 }
 
-input::placeholder {
+.register-page input::placeholder {
   color: #9aa3af;
 }
 
-input:focus {
+.register-page input:focus {
   border: 1px solid #2e8b78;
   background: #ffffff;
   box-shadow: 0 0 0 2px rgba(46, 139, 120, 0.15);
-}
-
-/* 🔥 FILA CONTRASEÑAS */
-.row {
-  display: flex;
-  gap: 12px;
-  margin-top: 5px;
-}
-
-.row div {
-  flex: 1;
-}
-
-/* CHECKBOX */
-.checkbox {
-  display: flex;
-  gap: 8px;
-  margin: 15px 0;
-  font-size: 13px;
-  align-items: center;
-}
-
-/* BOTÓN */
-button {
-  background: #2e8b78;
-  color: white;
-  padding: 13px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #256f60;
-}
-
-/* LOGIN */
-.login-link {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.login-link a {
-  color: #2e8b78;
-  text-decoration: none;
-  font-weight: bold;
 }
