@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Shield, Users, BarChart3 } from 'lucide-react';
 import '../css/login.css';
-import logo from '../assets/logo.jpeg'; // Cambia esta ruta por la de tu logo
+import logo from '../assets/logo.jpeg'; 
 
 const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);

@@ -11,7 +11,7 @@ function Reportar() {
 
       <div className="reportar-container">
 
-        {/* Encabezado */}
+        
         <div className="reportar-header">
           <div>
             <h2>Reportar Incidencia</h2>
@@ -23,7 +23,7 @@ function Reportar() {
           </div>
         </div>
 
-        {/* Barra de pasos */}
+  
         <div className="steps">
 
           <div className="step active">
@@ -47,12 +47,12 @@ function Reportar() {
 
         </div>
 
-        {/* Formulario */}
+   
         <div className="contenido-formulario">
 
           <div className="card-incidencia">
 
-            {/* Título */}
+            
             <div className="card-header">
 
               <div className="icono-card">
@@ -68,7 +68,7 @@ function Reportar() {
 
             </div>
 
-            {/* Primera fila */}
+         
 
             <div className="form-grid">
 
@@ -142,8 +142,7 @@ function Reportar() {
 
             </div>
 
-            {/* Descripción */}
-
+          
             <div className="grupo">
 
               <label>
@@ -162,7 +161,7 @@ function Reportar() {
 
             </div>
 
-            {/* Ubicación */}
+        
 
             <div className="grupo">
 
@@ -187,8 +186,7 @@ function Reportar() {
 
             </div>
 
-            {/* Evidencia */}
-
+        
             <div className="grupo">
 
               <label>
@@ -222,8 +220,7 @@ function Reportar() {
 
             </div>
 
-            {/* Botones */}
-
+           
             <div className="acciones">
 
               <button className="btn-cancelar">

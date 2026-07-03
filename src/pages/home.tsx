@@ -4,10 +4,10 @@ import "../css/home.css";
 function Home() {
   return (
     <div className="layout">
-      {/* SIDEBAR */}
+   
       <Navbar />
 
-      {/* CONTENIDO */}
+    
       <main className="home-content">
 
         {/* Barra superior */}
@@ -28,7 +28,6 @@ function Home() {
           </div>
         </header>
 
-        {/* Bienvenida */}
         <section className="welcome-card">
           <h1>Bienvenida, María</h1>
           <p>
@@ -37,7 +36,7 @@ function Home() {
           </p>
         </section>
 
-        {/* Tarjetas */}
+     
         <section className="stats-container">
 
           <div className="stat-card">
@@ -66,10 +65,9 @@ function Home() {
 
         </section>
 
-        {/* Panel inferior */}
         <section className="dashboard-grid">
 
-          {/* Panel izquierdo */}
+      
           <div className="report-card">
 
             <div className="report-icon">
@@ -89,7 +87,6 @@ function Home() {
 
           </div>
 
-          {/* Panel derecho */}
           <div className="incidents-card">
 
             <div className="incidents-header">

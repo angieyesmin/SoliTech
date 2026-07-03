@@ -4,13 +4,13 @@ import "../css/misreportes.css";
 function MisReportes() {
   return (
     <div className="layout">
-      {/* SIDEBAR */}
+     
       <Navbar />
 
-      {/* CONTENIDO */}
+    
       <div className="misreportes-container">
 
-        {/* HEADER */}
+       
         <div className="misreportes-header">
           <div>
             <h1>Mis Reportes</h1>
@@ -23,7 +23,6 @@ function MisReportes() {
           </div>
         </div>
 
-        {/* TARJETAS */}
         <div className="misreportes-cards">
           <div className="card">
             <h2 className="green">12</h2>
@@ -50,7 +49,7 @@ function MisReportes() {
           </div>
         </div>
 
-        {/* TABLA */}
+        
         <div className="reportes-tabla">
 
           <div className="tabla-header">
@@ -62,7 +61,7 @@ function MisReportes() {
             </div>
           </div>
 
-          {/* FILA 1 */}
+         
           <div className="fila">
             <div className="fila-left">
               <span className="punto azul"></span>
@@ -78,7 +77,7 @@ function MisReportes() {
             <span className="folio">INC-2824</span>
           </div>
 
-          {/* FILA 2 */}
+       
           <div className="fila">
             <div className="fila-left">
               <span className="punto amarillo"></span>
@@ -94,7 +93,7 @@ function MisReportes() {
             <span className="folio">INC-2823</span>
           </div>
 
-          {/* FILA 3 */}
+       
           <div className="fila">
             <div className="fila-left">
               <span className="punto verde"></span>
@@ -110,7 +109,6 @@ function MisReportes() {
             <span className="folio">INC-2821</span>
           </div>
 
-          {/* FILA 4 */}
           <div className="fila">
             <div className="fila-left">
               <span className="punto verde"></span>

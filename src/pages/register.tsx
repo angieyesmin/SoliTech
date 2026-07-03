@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import "../css/Register.css";
-import logo from "../assets/logo.jpeg"; // 👈 cambia por tu logo
+import logo from "../assets/logo.jpeg"; 
 
 function Register() {
   return (
     <div className="container">
 
-      {/* ================= LEFT ================= */}
+     
       <div className="left">
         <div className="left-content">
           <div className="logo">
@@ -51,7 +51,7 @@ function Register() {
         </div>
       </div>
 
-      {/* ================= RIGHT ================= */}
+      
       <div className="right">
         <div className="form-container">
 
