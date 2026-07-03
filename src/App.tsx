@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login";
 import Register from "./pages/register";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Reportar from "./pages/reportar";
+import MisReportes from "./pages/misreportes";
 
 function App() {
   return (
@@ -13,12 +14,9 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* HOME (DASHBOARD) */}
         <Route path="/home" element={<Home />} />
-
-        {/* SECCIONES */}
-        {<Route path="/reportar" element={<Reportar />} /> }
-
+        <Route path="/reportar" element={<Reportar />} />
+        <Route path="/misreportes" element={<MisReportes />} />
       </Routes>
     </BrowserRouter>
   );

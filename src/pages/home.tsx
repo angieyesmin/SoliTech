@@ -1,100 +1,300 @@
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import "../css/home.css";
 
 function Home() {
-  const navigate = useNavigate();
-
   return (
-    <div className="dashboard">
-
+    <div className="layout">
       {/* SIDEBAR */}
-      <aside className="sidebar">
-        <h2 className="logo">SoliTech</h2>
+      <Navbar />
 
-        <nav>
-          <button className="active">Inicio</button>
+      {/* CONTENIDO */}
+      <main className="home-content">
 
-          <button onClick={() => navigate("/reportar")}>
-            Reportar Incidencia
-          </button>
+        {/* Barra superior */}
+        <header className="topbar">
+          <div className="topbar-left">
+            <h3>Inicio</h3>
+            <p>Viernes, 27 de junio de 2026</p>
+          </div>
 
-          <button onClick={() => navigate("/mis-reportes")}>
-            Mis Reportes
-          </button>
-        </nav>
-      </aside>
+          <div className="topbar-right">
+            <button className="notification-btn">
+              🔔
+            </button>
 
-      {/* MAIN */}
-      <main className="main">
-
-        {/* HEADER */}
-        <header className="header">
-          <h3>Inicio</h3>
-          <div className="user">MA</div>
+            <div className="user-avatar">
+              MA
+            </div>
+          </div>
         </header>
 
-        {/* BIENVENIDA */}
-        <section className="welcome">
+        {/* Bienvenida */}
+        <section className="welcome-card">
           <h1>Bienvenida, María</h1>
           <p>
-            Aquí puedes reportar incidencias y hacer seguimiento a tus solicitudes.
+            Aquí puedes reportar incidencias y hacer seguimiento a tus
+            solicitudes.
           </p>
         </section>
 
-        {/* CARDS */}
-        <section className="cards">
-          <div className="card">
-            <h2>12</h2>
-            <p>Total reportados</p>
+        {/* Tarjetas */}
+        <section className="stats-container">
+
+          <div className="stat-card">
+            <h2 className="green">12</h2>
+            <h4>Total reportados</h4>
+            <span>↗ +2 este mes</span>
           </div>
 
-          <div className="card">
-            <h2>3</h2>
-            <p>En Proceso</p>
+          <div className="stat-card">
+            <h2 className="blue">3</h2>
+            <h4>En Proceso</h4>
+            <span>↗ Activos ahora</span>
           </div>
 
-          <div className="card">
-            <h2>2</h2>
-            <p>Pendientes</p>
+          <div className="stat-card">
+            <h2 className="orange">2</h2>
+            <h4>Pendientes</h4>
+            <span>↗ Sin atender</span>
           </div>
 
-          <div className="card">
-            <h2>7</h2>
-            <p>Resueltos</p>
+          <div className="stat-card">
+            <h2 className="darkgreen">7</h2>
+            <h4>Resueltos</h4>
+            <span>↗ Este semestre</span>
           </div>
+
         </section>
 
-        {/* CONTENIDO */}
-        <section className="content">
+        {/* Panel inferior */}
+        <section className="dashboard-grid">
 
-          {/* REPORTAR */}
-          <div className="report-box">
-            <h3>Reportar una incidencia</h3>
+          {/* Panel izquierdo */}
+          <div className="report-card">
+
+            <div className="report-icon">
+              +
+            </div>
+
+            <h2>Reportar una incidencia</h2>
+
             <p>
-              Informa un problema técnico, de infraestructura o equipamiento.
+              Informa un problema técnico, de infraestructura
+              o equipamiento a tu institución.
             </p>
 
-            <button onClick={() => navigate("/ReportarIncidentes")}>
-              Nuevo Reporte
+            <button className="new-report-btn">
+              ⊕ Nuevo Reporte
             </button>
+
           </div>
 
-          {/* LISTA */}
-          <div className="list">
-            <h3>Mis Incidencias</h3>
+          {/* Panel derecho */}
+          <div className="incidents-card">
 
-            <div className="item">Falla en sistema de acceso</div>
-            <div className="item">Internet inestable</div>
-            <div className="item">Proyector dañado</div>
-            <div className="item">Filtración de agua</div>
-            <div className="item">Impresora sin tóner</div>
+            <div className="incidents-header">
 
-            <button
-              className="ver-todo"
-              onClick={() => navigate("/mis-reportes")}
-            >
-              Ver todas →
-            </button>
+              <div>
+                <h2>Mis Incidencias</h2>
+                <p>Últimas 5 solicitudes registradas</p>
+              </div>
+
+              <button className="view-all-btn">
+                Ver todas →
+              </button>
+
+            </div>
+
+            <div className="incident-item">
+
+              <div className="incident-left">
+
+                <span className="dot blue-dot"></span>
+
+                <div>
+
+                  <h4>Falla en sistema de acceso Edificio B</h4>
+
+                  <div className="incident-tags">
+
+                    <span className="status process">
+                      En Proceso
+                    </span>
+
+                    <span className="category">
+                      Infraestructura
+                    </span>
+
+                    <span className="date">
+                      24 jun 2026
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span className="incident-id">
+                INC-2024
+              </span>
+
+            </div>
+
+            <div className="incident-item">
+
+              <div className="incident-left">
+
+                <span className="dot orange-dot"></span>
+
+                <div>
+
+                  <h4>Conexión a internet inestable laboratorio 3</h4>
+
+                  <div className="incident-tags">
+
+                    <span className="status pending">
+                      Pendiente
+                    </span>
+
+                    <span className="category">
+                      Tecnología
+                    </span>
+
+                    <span className="date">
+                      22 jun 2026
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span className="incident-id">
+                INC-2023
+              </span>
+
+            </div>
+
+            <div className="incident-item">
+
+              <div className="incident-left">
+
+                <span className="dot green-dot"></span>
+
+                <div>
+
+                  <h4>Proyector dañado en aula 204</h4>
+
+                  <div className="incident-tags">
+
+                    <span className="status resolved">
+                      Resuelto
+                    </span>
+
+                    <span className="category">
+                      Equipamiento
+                    </span>
+
+                    <span className="date">
+                      18 jun 2026
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span className="incident-id">
+                INC-2021
+              </span>
+
+            </div>
+
+            <div className="incident-item">
+
+              <div className="incident-left">
+
+                <span className="dot green-dot"></span>
+
+                <div>
+
+                  <h4>Filtración de agua en pasillo norte</h4>
+
+                  <div className="incident-tags">
+
+                    <span className="status resolved">
+                      Resuelto
+                    </span>
+
+                    <span className="category">
+                      Mantenimiento
+                    </span>
+
+                    <span className="date">
+                      12 jun 2026
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span className="incident-id">
+                INC-2019
+              </span>
+
+            </div>
+
+            <div className="incident-item">
+
+              <div className="incident-left">
+
+                <span className="dot blue-dot"></span>
+
+                <div>
+
+                  <h4>Impresora de secretaría sin tóner</h4>
+
+                  <div className="incident-tags">
+
+                    <span className="status process">
+                      En Proceso
+                    </span>
+
+                    <span className="category">
+                      Equipamiento
+                    </span>
+
+                    <span className="date">
+                      8 jun 2026
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span className="incident-id">
+                INC-2017
+              </span>
+
+            </div>
+
+            <div className="legend">
+
+              <span><i className="legend-dot orange-dot"></i> Pendiente</span>
+
+              <span><i className="legend-dot blue-dot"></i> En Proceso</span>
+
+              <span><i className="legend-dot green-dot"></i> Resuelto</span>
+
+            </div>
+
           </div>
 
         </section>

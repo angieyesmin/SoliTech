@@ -1,21 +1,17 @@
-/* ===== REGISTER PAGE - AISLADO ===== */
-.register-page {
-  font-family: "Segoe UI", sans-serif;
-}
-
-.register-page * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.register-page .container {
+.container {
   display: flex;
   height: 100vh;
 }
 
 /* ===== LEFT ===== */
-.register-page .left {
+.left {
   width: 40%;
   background: linear-gradient(135deg, #0f2a44, #0b1f33);
   color: white;
@@ -24,56 +20,56 @@
   justify-content: center;
 }
 
-.register-page .left-content {
+.left-content {
   width: 80%;
 }
 
-.register-page .register-logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
 }
 
-.register-page .register-logo img {
+.logo img {
   width: 40px;
 }
 
-.register-page .left h1 {
+.left h1 {
   font-size: 28px;
   margin-bottom: 15px;
 }
 
-.register-page .left p {
+.left p {
   font-size: 14px;
   opacity: 0.8;
   margin-bottom: 30px;
 }
 
-.register-page .features {
+.features {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.register-page .feature {
+.feature {
   display: flex;
   gap: 10px;
   align-items: flex-start;
 }
 
-.register-page .feature span {
+.feature span {
   font-size: 20px;
 }
 
-.register-page .footer {
+.footer {
   margin-top: 40px;
   font-size: 12px;
   opacity: 0.6;
 }
 
 /* ===== RIGHT ===== */
-.register-page .right {
+.right {
   width: 60%;
   background: #f5f7fa;
   display: flex;
@@ -81,68 +77,93 @@
   justify-content: center;
 }
 
-/* CONTENEDOR MEJORADO */
-.register-page .form-container {
+.form-container {
   background: white;
-  padding: 45px 40px;
-  border-radius: 18px;
-  width: 440px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  border-radius: 15px;
+  width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.register-page .form-header {
+.form-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.register-page .form-header img {
+.form-header img {
   width: 50px;
   margin-bottom: 10px;
 }
 
-.register-page .form-header h2 {
+.form-header h2 {
   margin-bottom: 5px;
 }
 
-.register-page .subtitle {
+.subtitle {
   font-size: 14px;
   color: gray;
   margin-bottom: 20px;
 }
 
-/* FORM - YA NO AFECTA A TODOS LOS FORM */
-.register-page form {
+/* INPUTS */
+form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
-/* LABELS - YA NO AFECTA A TODOS LOS LABEL */
-.register-page label {
-  margin: 12px 0 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-}
-
-/* INPUTS - YA NO AFECTA A TODOS LOS INPUT */
-.register-page input {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #e0e3e7;
-  background: #f1f3f6;
+label {
+  margin: 10px 0 5px;
   font-size: 14px;
-  outline: none;
-  transition: 0.2s;
-  color: #000000;
 }
 
-.register-page input::placeholder {
-  color: #9aa3af;
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.register-page input:focus {
-  border: 1px solid #2e8b78;
-  background: #ffffff;
-  box-shadow: 0 0 0 2px rgba(46, 139, 120, 0.15);
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row div {
+  flex: 1;
+}
+
+/* CHECKBOX */
+.checkbox {
+  display: flex;
+  gap: 8px;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+/* BUTTON */
+button {
+  background: #2e8b78;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #256f60;
+}
+
+/* LOGIN LINK */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #2e8b78;
+  text-decoration: none;
+  font-weight: bold;
 }

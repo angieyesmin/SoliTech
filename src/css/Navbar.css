@@ -1,0 +1,192 @@
+/* ===========================
+   SIDEBAR - Estructura principal
+=========================== */
+
+.sidebar {
+    width: 230px;
+    min-height: 100vh; /* Cambiado de height a min-height */
+    height: 100%; /* Asegura que ocupe todo el alto disponible */
+    background: #16224a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,.05);
+    position: sticky; /* Para que se mantenga fijo al hacer scroll */
+    top: 0;
+    flex-shrink: 0;
+}
+
+/* ===========================
+   HEADER - Logo y título
+=========================== */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 18px;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.sidebar-header h2 {
+    font-size: 27px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,.08);
+    flex-shrink: 0;
+}
+
+/* ===========================
+   TÍTULO DEL MENÚ
+=========================== */
+
+.menu-title {
+    margin: 22px 18px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #6f86b2;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* ===========================
+   MENÚ - Contenedor de items
+=========================== */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px;
+    flex: 1; /* Ocupa el espacio disponible */
+}
+
+/* ===========================
+   ITEM DEL MENÚ - Estilo base
+=========================== */
+
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 48px;
+    padding: 0 18px;
+    color: #c5d1e6;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Iconos del menú */
+.menu-item svg {
+    color: #9fb4d9;
+    flex-shrink: 0;
+    transition: color 0.25s ease;
+}
+
+/* Texto del menú */
+.menu-item span {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* ===========================
+   HOVER - Efecto al pasar el mouse
+=========================== */
+
+.menu-item:hover {
+    background: rgba(31, 205, 180, 0.10);
+    color: #2fd5b4;
+}
+
+.menu-item:hover svg {
+    color: #2fd5b4;
+}
+
+/* ===========================
+   ACTIVO - Cuando la ruta está activa
+=========================== */
+
+.menu-item.active {
+    background: rgba(20, 197, 170, 0.12);
+    color: #2fd5b4;
+}
+
+.menu-item.active svg {
+    color: #2fd5b4;
+}
+
+/* ===========================
+   BARRA ACTIVA - Indicador derecho
+=========================== */
+
+.active-bar {
+    position: absolute;
+    right: 12px;
+    width: 4px;
+    height: 22px;
+    border-radius: 10px;
+    background: #2fd5b4;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Solo aparece cuando la ruta está activa */
+.menu-item.active .active-bar {
+    opacity: 1;
+}
+
+/* ===========================
+   RESPONSIVE - Para pantallas pequeñas
+=========================== */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        min-height: 100vh;
+    }
+
+    .sidebar-header h2 {
+        display: none;
+    }
+
+    .menu-title {
+        display: none;
+    }
+
+    .menu-item span {
+        display: none;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .menu-item svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .active-bar {
+        right: 4px;
+        width: 3px;
+        height: 30px;
+    }
+}

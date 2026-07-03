@@ -1,11 +1,193 @@
-.mis-container {
-  padding: 30px;
+/* CONTENEDOR */
+.misreportes-container {
+  flex: 1;
+  padding: 25px;
+  background: #f5f7fb;
 }
 
-.reporte {
+/* HEADER */
+.misreportes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.misreportes-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+.misreportes-header p {
+  color: #7a8ca5;
+  margin-top: 5px;
+}
+
+/* USER */
+.misreportes-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.campana {
+  font-size: 18px;
+  color: #6b7a90;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  background: #4bb3a7;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARDS */
+.misreportes-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card {
   background: #ffffff;
-  padding: 15px;
-  margin-top: 15px;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #eef1f5;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.card span {
+  font-size: 13px;
+  color: #8fa2b7;
+}
+
+/* COLORES */
+.green { color: #2bb3a3; }
+.purple { color: #6c63ff; }
+.yellow { color: #f4b400; }
+
+/* TABLA */
+.reportes-tabla {
+  margin-top: 25px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #eef1f5;
+  padding: 20px;
+}
+
+/* HEADER TABLA */
+.tabla-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tabla-header h2 {
+  font-size: 18px;
+  color: #1f2d3d;
+}
+
+/* BUSCADOR */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f4f8;
+  padding: 8px 12px;
   border-radius: 10px;
-  border-left: 5px solid #1abc9c;
+}
+
+.buscador input {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+/* FILAS */
+.fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid #eef1f5;
+}
+
+.fila-left {
+  display: flex;
+  gap: 12px;
+}
+
+/* PUNTOS */
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.azul { background: #4a90e2; }
+.verde { background: #2bb3a3; }
+.amarillo { background: #f4b400; }
+
+/* INFO */
+.fila-info {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: #7a8ca5;
+  margin-top: 5px;
+}
+
+/* BADGES */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.badge.azul {
+  background: #e7f0ff;
+  color: #4a90e2;
+}
+
+.badge.verde {
+  background: #e6f7f5;
+  color: #2bb3a3;
+}
+
+.badge.amarillo {
+  background: #fff4d6;
+  color: #f4b400;
+}
+
+.badge.gris {
+  background: #eef1f5;
+  color: #6b7a90;
+}
+
+/* FOLIO */
+.folio {
+  color: #8fa2b7;
+  font-size: 13px;
 }

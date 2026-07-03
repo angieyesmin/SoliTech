@@ -1,126 +1,248 @@
-import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import "../css/reporte.css";
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import "../css/reportar.css";
 
-function ReportarIncidentes() {
-  const navigate = useNavigate();
-  const [prioridad, setPrioridad] = useState<string>("");
-  const [fileName, setFileName] = useState<string>("");
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    navigate("/mis-reportes");
-  };
-
-  const handleClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFileName(e.target.files[0].name);
-    }
-  };
+function Reportar() {
+  const [prioridad, setPrioridad] = useState("media");
 
   return (
-    <div className="reportar-container">
-      <aside className="reportar-sidebar">
-        <h2 className="logo-text">SoliTech</h2>  {/* ← logo-text */}
-        <ul>
-          <li>Inicio</li>
-          <li className="active">Reportar Incidencia</li>
-          <li onClick={() => navigate("/mis-reportes")}>Mis Reportes</li>
-        </ul>
-      </aside>
+    <div className="layout">
+      <Navbar />
 
-      <header className="reportar-header">
-        <div className="header-left">
-          <h1>Reportar Incidencia</h1>
-          <p>Completa el formulario para registrar tu solicitud</p>
-        </div>
-        <div className="header-right">
-          <span className="bell">🔔</span>
-          <div className="avatar">MA</div>
-        </div>
-      </header>
+      <div className="reportar-container">
 
-      <main className="reportar-main">
-        <div className="container-form">
-          <div className="steps">
-            <div className="step active">
-              <div className="circle">1</div>
-              Detalles
-            </div>
-            <div className="step active">
-              <div className="circle">2</div>
-              Ubicación
-            </div>
-            <div className="step">
-              <div className="circle">3</div>
-              Evidencia
-            </div>
+        {/* Encabezado */}
+        <div className="reportar-header">
+          <div>
+            <h2>Reportar Incidencia</h2>
+            <p>Completa el formulario para registrar tu solicitud</p>
           </div>
 
-          <form className="reportar-card" onSubmit={handleSubmit}>  {/* ← reportar-card */}
-            <h2>Nueva incidencia</h2>
-            <small>Campos obligatorios *</small>
-
-            <label>Tipo de recurso *</label>
-            <select required>
-              <option value="">Selecciona una opción</option>
-              <option>Equipo</option>
-              <option>Software</option>
-              <option>Red</option>
-            </select>
-
-            <label>Nivel de prioridad</label>
-            <div className="prioridad">
-              <div
-                className={`prioridad-card alta ${prioridad === "alta" ? "active" : ""}`}
-                onClick={() => setPrioridad("alta")}
-              >
-                🔴 Alta
-              </div>
-              <div
-                className={`prioridad-card media ${prioridad === "media" ? "active" : ""}`}
-                onClick={() => setPrioridad("media")}
-              >
-                🟡 Media
-              </div>
-              <div
-                className={`prioridad-card baja ${prioridad === "baja" ? "active" : ""}`}
-                onClick={() => setPrioridad("baja")}
-              >
-                🟢 Baja
-              </div>
-            </div>
-
-            <label>Descripción *</label>
-            <textarea placeholder="Describe el problema..." required />
-
-            <label>Ubicación *</label>
-            <div className="row-fields">  {/* ← row-fields */}
-              <input type="text" placeholder="Ej. Edificio A, Laboratorio 3" required />
-              <input type="text" placeholder="Referencia adicional (aula, piso, área)" />
-            </div>
-
-            <label>Adjuntar evidencia</label>
-            <div className="file-upload" onClick={handleClick}>
-              <div className="upload-icon">📁</div>
-              <p className="upload-title">Arrastra y suelta archivos aquí</p>
-              <p className="upload-sub">o haz clic para seleccionar desde tu dispositivo</p>
-              <button type="button" className="btn-upload">Seleccionar archivo</button>
-              <input type="file" ref={fileInputRef} onChange={handleFileChange} hidden />
-              {fileName && <p className="file-name">Archivo: {fileName}</p>}
-            </div>
-
-            <button type="submit" className="btn-enviar">Enviar Reporte</button>
-          </form>
+          <div className="usuario">
+            <span>MA</span>
+          </div>
         </div>
-      </main>
+
+        {/* Barra de pasos */}
+        <div className="steps">
+
+          <div className="step active">
+            <div className="circle">1</div>
+            <span>Detalles</span>
+          </div>
+
+          <div className="line active-line"></div>
+
+          <div className="step active">
+            <div className="circle">2</div>
+            <span>Ubicación</span>
+          </div>
+
+          <div className="line"></div>
+
+          <div className="step">
+            <div className="circle">3</div>
+            <span>Evidencia</span>
+          </div>
+
+        </div>
+
+        {/* Formulario */}
+        <div className="contenido-formulario">
+
+          <div className="card-incidencia">
+
+            {/* Título */}
+            <div className="card-header">
+
+              <div className="icono-card">
+                📝
+              </div>
+
+              <div>
+                <h3>Nueva incidencia</h3>
+                <p>
+                  Todos los campos marcados con * son obligatorios
+                </p>
+              </div>
+
+            </div>
+
+            {/* Primera fila */}
+
+            <div className="form-grid">
+
+              <div className="grupo">
+
+                <label>
+                  Tipo de recurso <span>*</span>
+                </label>
+
+                <select>
+
+                  <option>Selecciona una opción</option>
+
+                  <option>Computadora</option>
+
+                  <option>Laptop</option>
+
+                  <option>Impresora</option>
+
+                  <option>Proyector</option>
+
+                  <option>Internet</option>
+
+                  <option>Otro</option>
+
+                </select>
+
+              </div>
+
+              <div className="grupo">
+
+                <label>
+                  Nivel de prioridad
+                </label>
+
+                <div className="prioridades">
+
+                  <button
+                    type="button"
+                    className={`prioridad ${
+                      prioridad === "alta" ? "alta" : ""
+                    }`}
+                    onClick={() => setPrioridad("alta")}
+                  >
+                    🔴 Alta
+                  </button>
+
+                  <button
+                    type="button"
+                    className={`prioridad ${
+                      prioridad === "media" ? "media" : ""
+                    }`}
+                    onClick={() => setPrioridad("media")}
+                  >
+                    🟡 Media
+                  </button>
+
+                  <button
+                    type="button"
+                    className={`prioridad ${
+                      prioridad === "baja" ? "baja" : ""
+                    }`}
+                    onClick={() => setPrioridad("baja")}
+                  >
+                    🟢 Baja
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Descripción */}
+
+            <div className="grupo">
+
+              <label>
+                Descripción de la incidencia
+                <span>*</span>
+              </label>
+
+              <textarea
+                rows={6}
+                placeholder="Describe con detalle qué ocurrió, cuándo comenzó y cómo afecta las actividades..."
+              ></textarea>
+
+              <div className="contador">
+                0 / 500
+              </div>
+
+            </div>
+
+            {/* Ubicación */}
+
+            <div className="grupo">
+
+              <label>
+                Ubicación física
+                <span>*</span>
+              </label>
+
+              <div className="ubicacion">
+
+                <input
+                  type="text"
+                  placeholder="Ej. Edificio A, Laboratorio 3"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Referencia adicional (aula, piso, área)"
+                />
+
+              </div>
+
+            </div>
+
+            {/* Evidencia */}
+
+            <div className="grupo">
+
+              <label>
+                Adjuntar evidencia
+                <small> (Opcional · máx. 4 archivos)</small>
+              </label>
+
+              <div className="upload">
+
+                <div className="upload-icon">
+                  ⬆
+                </div>
+
+                <h4>Arrastrar archivos aquí</h4>
+
+                <p>o selecciona desde tu dispositivo</p>
+
+                <span>
+                  PNG, JPG, PDF. Máx. 10 MB por archivo
+                </span>
+
+                <br />
+
+                <input
+                  className="file-input"
+                  type="file"
+                  multiple
+                />
+
+              </div>
+
+            </div>
+
+            {/* Botones */}
+
+            <div className="acciones">
+
+              <button className="btn-cancelar">
+                Cancelar
+              </button>
+
+              <button className="btn-continuar">
+                Continuar
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
     </div>
   );
 }
 
-export default ReportarIncidentes;
+export default Reportar;
