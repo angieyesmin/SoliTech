@@ -10,7 +10,6 @@ function Home() {
     
       <main className="home-content">
 
-        {/* Barra superior */}
         <header className="topbar">
           <div className="topbar-left">
             <h3>Inicio</h3>
