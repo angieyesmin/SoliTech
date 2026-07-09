@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Shield, Users, BarChart3 } from 'lucide-react';
+import { useNavigate } from "react-router-dom"; // 👈 IMPORTANTE
 import '../css/login.css';
 import logo from '../assets/logo.jpeg'; 
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate(); // 👈 Hook para navegar
+
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,11 +14,20 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ email, password, remember });
+
+    // Validación básica
+    if (email && password) {
+      console.log({ email, password, remember });
+
+      // 👉 Redirige al HOME
+      navigate("/home");
+    } else {
+      alert("Por favor completa todos los campos");
+    }
   };
 
   const handleRegisterClick = () => {
-    window.location.href = '/register';
+    navigate("/register"); // 👈 mejor que window.location
   };
 
   return (
@@ -147,9 +159,9 @@ const LoginPage: React.FC = () => {
 
             <button 
               type="button"
-             className="btn-secondary"
-             onClick={handleRegisterClick}>
-             Crear una cuenta nueva 
+              className="btn-secondary"
+              onClick={handleRegisterClick}>
+              Crear una cuenta nueva 
             </button>
           </div>
 
