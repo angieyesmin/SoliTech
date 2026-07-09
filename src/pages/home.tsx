@@ -1,13 +1,14 @@
 import Navbar from "../components/Navbar";
 import "../css/home.css";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="layout">
-   
       <Navbar />
 
-    
       <main className="home-content">
 
         <header className="topbar">
@@ -35,7 +36,6 @@ function Home() {
           </p>
         </section>
 
-     
         <section className="stats-container">
 
           <div className="stat-card">
@@ -66,7 +66,6 @@ function Home() {
 
         <section className="dashboard-grid">
 
-      
           <div className="report-card">
 
             <div className="report-icon">
@@ -80,7 +79,10 @@ function Home() {
               o equipamiento a tu institución.
             </p>
 
-            <button className="new-report-btn">
+            <button
+              className="new-report-btn"
+              onClick={() => navigate("/reportar")}
+            >
               ⊕ Nuevo Reporte
             </button>
 
