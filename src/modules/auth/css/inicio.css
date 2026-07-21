@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================
+   PÁGINA PRINCIPAL
+========================================= */
+
+.inicio-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 24px;
+  background:
+    radial-gradient(
+      circle at 92% 18%,
+      rgba(18, 90, 92, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 82%,
+      rgba(21, 63, 98, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #0d1e34 0%,
+      #0d1a2d 56%,
+      #0a1c2a 100%
+    );
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* =========================================
+   CÍRCULOS DECORATIVOS
+========================================= */
+
+.inicio-circle {
+  border: 1px solid rgba(101, 139, 165, 0.12);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.inicio-circle-left {
+  width: 410px;
+  height: 410px;
+  top: -205px;
+  left: -265px;
+}
+
+.inicio-circle-right {
+  width: 360px;
+  height: 360px;
+  right: -250px;
+  bottom: -230px;
+}
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.inicio-content {
+  width: min(650px, 100%);
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.inicio-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.inicio-logo-border {
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  background: rgba(25, 185, 159, 0.12);
+  box-shadow:
+    0 0 0 9px rgba(27, 171, 148, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.25);
+  display: grid;
+  place-items: center;
+}
+
+.inicio-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #2ac9b1,
+    #14a88e
+  );
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    0 8px 24px rgba(20, 181, 153, 0.28);
+  display: grid;
+  place-items: center;
+}
+
+.inicio-logo span {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* =========================================
+   MARCA
+========================================= */
+
+.inicio-brand {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.inicio-brand h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+}
+
+.inicio-year {
+  padding: 5px 11px;
+  border: 1px solid rgba(26, 184, 155, 0.38);
+  border-radius: 999px;
+  background: rgba(23, 167, 143, 0.12);
+  color: #23b79e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   TEXTO PRINCIPAL
+========================================= */
+
+.inicio-hero {
+  margin-top: 26px;
+}
+
+.inicio-hero h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 4vw, 47px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -1.6px;
+}
+
+.inicio-hero p {
+  margin: 21px 0 0;
+  color: #b5c0cf;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.inicio-actions {
+  margin-top: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+
+.inicio-login-button,
+.inicio-register-button {
+  min-width: 155px;
+  height: 49px;
+  padding: 0 24px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.inicio-login-button {
+  border: 1px solid #18ad93;
+  background: #1aa98f;
+  box-shadow: 0 10px 25px rgba(24, 172, 146, 0.22);
+}
+
+.inicio-login-button:hover {
+  background: #16b097;
+  box-shadow: 0 12px 30px rgba(24, 174, 148, 0.34);
+  transform: translateY(-2px);
+}
+
+.inicio-login-button:active,
+.inicio-register-button:active {
+  transform: scale(0.97);
+}
+
+.inicio-register-button {
+  border: 1px solid #637185;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.inicio-register-button:hover {
+  border-color: #8996a8;
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+  .inicio-page {
+    padding: 35px 20px 60px;
+  }
+
+  .inicio-content {
+    margin-top: 0;
+  }
+
+  .inicio-logo-border {
+    width: 94px;
+    height: 94px;
+  }
+
+  .inicio-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .inicio-logo span {
+    font-size: 23px;
+  }
+
+  .inicio-brand h1 {
+    font-size: 29px;
+  }
+
+  .inicio-hero {
+    margin-top: 24px;
+  }
+
+  .inicio-hero h2 {
+    font-size: 34px;
+  }
+
+  .inicio-hero p {
+    font-size: 14px;
+  }
+
+  .inicio-hero p br {
+    display: none;
+  }
+
+  .inicio-actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .inicio-login-button,
+  .inicio-register-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   DIVISOR
+========================================= */
+
+.inicio-divider{
+    width:100%;
+    max-width:480px;
+    height:1px;
+    background:rgba(255,255,255,.08);
+    margin:65px auto 40px;
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.inicio-features{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    margin-bottom:55px;
+    position:relative;
+}
+
+.inicio-feature{
+    text-align:center;
+    position:relative;
+}
+
+.inicio-feature:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:-20px;
+    top:15px;
+    width:1px;
+    height:90px;
+    background:rgba(255,255,255,.08);
+}
+
+.feature-icon{
+    width:42px;
+    height:42px;
+    margin:0 auto 14px;
+    border-radius:12px;
+    background:rgba(24,173,147,.12);
+    border:1px solid rgba(24,173,147,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    color:#21c8aa;
+}
+
+.inicio-feature h3{
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.inicio-feature p{
+    color:#8fa0b5;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.inicio-footer{
+    text-align:center;
+    color:#5f7188;
+    font-size:14px;
+    margin-top:10px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:900px){
+
+    .inicio-features{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .inicio-feature:not(:last-child)::after{
+        display:none;
+    }
+
+    .inicio-divider{
+        margin:45px auto 35px;
+    }
+}

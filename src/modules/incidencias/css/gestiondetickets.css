@@ -1,0 +1,1165 @@
+* {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fa;
+}
+
+.gestion-tickets-container {
+  flex: 1;
+  min-width: 0;
+  background: #f4f7fa;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.gestion-tickets-header {
+  min-height: 88px;
+  padding: 0 30px;
+  background: #ffffff;
+  border-bottom: 1px solid #dfe6ee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.gestion-tickets-title h1 {
+  margin: 0;
+  color: #0b1933;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.gestion-tickets-title p {
+  margin: 7px 0 0;
+  color: #718098;
+  font-size: 13px;
+}
+
+.gestion-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gestion-update-btn {
+  height: 40px;
+  padding: 0 17px;
+  border: 1px solid #1f9f86;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #168c78;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: 0.2s ease;
+}
+
+.gestion-update-btn:hover {
+  background: #effaf7;
+  transform: translateY(-1px);
+}
+
+.gestion-update-btn:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.gestion-update-btn.is-updating svg {
+  animation: spinRefresh 0.75s linear infinite;
+}
+
+@keyframes spinRefresh {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   NOTIFICACIONES
+========================================= */
+
+.gestion-notification-wrapper,
+.gestion-profile-wrapper {
+  position: relative;
+}
+
+.gestion-notification-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #314159;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+  transition: 0.2s ease;
+}
+
+.gestion-notification-btn:hover {
+  background: #eef5f8;
+  color: #15947d;
+}
+
+.gestion-notification-count {
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #159d84;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  position: absolute;
+  top: 1px;
+  right: 0;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-notifications-menu {
+  width: 330px;
+  padding: 14px;
+  border: 1px solid #dfe6ee;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  top: 50px;
+  right: -40px;
+  z-index: 100;
+  animation: showGestionMenu 0.18s ease;
+}
+
+@keyframes showGestionMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gestion-menu-header {
+  padding: 2px 2px 12px;
+  border-bottom: 1px solid #edf1f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gestion-menu-header h3 {
+  margin: 0;
+  color: #0b1933;
+  font-size: 15px;
+}
+
+.gestion-menu-header p {
+  margin: 4px 0 0;
+  color: #94a1b4;
+  font-size: 11px;
+}
+
+.gestion-menu-header button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: #f2f6f9;
+  color: #5f6f86;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-notification-item {
+  padding: 13px 3px;
+  border-bottom: 1px solid #edf1f5;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.gestion-notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-indicator {
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.notification-indicator.red {
+  background: #ef4444;
+}
+
+.notification-indicator.blue {
+  background: #2583dc;
+}
+
+.notification-indicator.green {
+  background: #159d84;
+}
+
+.gestion-notification-item strong {
+  color: #17243b;
+  font-size: 12px;
+}
+
+.gestion-notification-item p {
+  margin: 4px 0;
+  color: #637189;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.gestion-notification-item small {
+  color: #9aa6b8;
+  font-size: 10px;
+}
+
+/* =========================================
+   PERFIL
+========================================= */
+
+.gestion-profile-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.gestion-profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #071934;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-profile-info {
+  min-width: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gestion-profile-info strong {
+  color: #17243b;
+  font-size: 12px;
+}
+
+.gestion-profile-info small {
+  margin-top: 4px;
+  color: #78869b;
+  font-size: 10px;
+}
+
+.gestion-profile-btn > svg {
+  color: #3e4d63;
+}
+
+.gestion-profile-menu {
+  width: 190px;
+  padding: 8px;
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.15);
+  position: absolute;
+  top: 51px;
+  right: 0;
+  z-index: 100;
+  animation: showGestionMenu 0.18s ease;
+}
+
+.gestion-profile-menu button {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #35445b;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.gestion-profile-menu button:hover {
+  background: #f1f6f8;
+}
+
+.gestion-profile-menu .logout-option {
+  color: #dc3d3d;
+}
+
+/* =========================================
+   FILTROS
+========================================= */
+
+.gestion-filters-card {
+  margin: 24px 28px 0;
+  padding: 20px 18px;
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+  display: grid;
+  grid-template-columns:
+    minmax(430px, 2.2fr)
+    minmax(150px, 0.8fr)
+    minmax(190px, 0.9fr)
+    minmax(200px, 1fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.gestion-filter-group {
+  min-width: 0;
+}
+
+.gestion-filter-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #46566d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gestion-status-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gestion-status-buttons button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid #dce3eb;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #425169;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: 0.2s ease;
+}
+
+.gestion-status-buttons button:hover {
+  border-color: #aebaca;
+  background: #f8fafc;
+}
+
+.gestion-status-buttons button.active {
+  border-color: #071934;
+  background: #071934;
+  color: #ffffff;
+  box-shadow: 0 5px 12px rgba(7, 25, 52, 0.18);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-dot.pending {
+  background: #f1a317;
+}
+
+.status-dot.process {
+  background: #2583dc;
+}
+
+.status-dot.waiting {
+  background: #8657db;
+}
+
+.status-dot.resolved {
+  background: #159d84;
+}
+
+.gestion-filter-group select,
+.gestion-search-box {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #dce3eb;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #314159;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.gestion-filter-group select {
+  padding: 0 13px;
+  cursor: pointer;
+}
+
+.gestion-filter-group select:focus,
+.gestion-search-box:focus-within {
+  border-color: #159d84;
+  box-shadow: 0 0 0 3px rgba(21, 157, 132, 0.1);
+}
+
+.gestion-search-box {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gestion-search-box input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #17243b;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.gestion-search-box input::placeholder {
+  color: #a0aaba;
+}
+
+.gestion-search-box svg {
+  color: #66768d;
+  flex-shrink: 0;
+}
+
+.gestion-filter-result {
+  margin: 12px 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gestion-filter-result span {
+  color: #17243b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gestion-filter-result small {
+  color: #94a1b4;
+  font-size: 11px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1180px) {
+  .gestion-filters-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .estado-filter-group {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .gestion-tickets-header {
+    padding: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gestion-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .gestion-update-btn {
+    flex: 1;
+  }
+
+  .gestion-profile-info {
+    display: none;
+  }
+
+  .gestion-filters-card {
+    margin: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .estado-filter-group {
+    grid-column: auto;
+  }
+
+  .gestion-status-buttons {
+    flex-wrap: wrap;
+  }
+
+  .gestion-filter-result {
+    margin: 12px 20px 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .gestion-tickets-title h1 {
+    font-size: 21px;
+  }
+
+  .gestion-notifications-menu {
+    position: fixed;
+    top: 84px;
+    left: 15px;
+    right: 15px;
+    width: auto;
+  }
+
+  .gestion-status-buttons button {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .gestion-profile-menu {
+    right: -5px;
+  }
+}
+
+/* =========================================
+   TABLA DE GESTIÓN DE TICKETS
+========================================= */
+
+.gestion-table-card {
+  margin: 18px 28px 28px;
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+  overflow: visible;
+}
+
+.gestion-table-scroll {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.gestion-tickets-table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+}
+
+.gestion-tickets-table th {
+  padding: 16px 18px;
+  border-bottom: 1px solid #dfe6ee;
+  background: #fbfcfd;
+  color: #8491a5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.gestion-tickets-table td {
+  height: 60px;
+  padding: 11px 18px;
+  border-bottom: 1px solid #edf1f5;
+  color: #35445c;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.gestion-tickets-table tbody tr:hover {
+  background: #fbfcfe;
+}
+
+.gestion-tickets-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.gestion-folio {
+  color: #17243b !important;
+  font-weight: 800;
+}
+
+.gestion-type-cell,
+.gestion-technician-cell,
+.gestion-reporter-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gestion-type-icon {
+  color: #169d86;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-type-icon.tecnología {
+  color: #2583dc;
+}
+
+.gestion-type-icon.equipamiento {
+  color: #8657db;
+}
+
+.gestion-type-icon.mantenimiento {
+  color: #9a6f9e;
+}
+
+.gestion-location-cell,
+.gestion-date-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gestion-location-cell strong,
+.gestion-date-cell strong {
+  color: #405069;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.gestion-location-cell small,
+.gestion-date-cell small {
+  color: #718098;
+  font-size: 10px;
+}
+
+.gestion-priority-badge,
+.gestion-state-badge {
+  width: max-content;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gestion-priority-badge i,
+.gestion-state-badge i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.gestion-priority-badge.alta {
+  border: 1px solid #f3c4c4;
+  background: #fff1f1;
+  color: #bd3939;
+}
+
+.gestion-priority-badge.alta i {
+  background: #dc3030;
+}
+
+.gestion-priority-badge.media {
+  border: 1px solid #f0dda1;
+  background: #fff9eb;
+  color: #a16a0d;
+}
+
+.gestion-priority-badge.media i {
+  background: #e2a11b;
+}
+
+.gestion-priority-badge.baja {
+  border: 1px solid #d9e1ea;
+  background: #f2f5f8;
+  color: #607089;
+}
+
+.gestion-priority-badge.baja i {
+  background: #75869d;
+}
+
+.gestion-state-badge.pending {
+  border: 1px solid #f0dda1;
+  background: #fff9eb;
+  color: #9e6a10;
+}
+
+.gestion-state-badge.pending i {
+  background: #e3a21d;
+}
+
+.gestion-state-badge.process {
+  border: 1px solid #bdd9f8;
+  background: #eef6ff;
+  color: #216bad;
+}
+
+.gestion-state-badge.process i {
+  background: #2583dc;
+}
+
+.gestion-state-badge.waiting {
+  border: 1px solid #d9caf9;
+  background: #f5f0ff;
+  color: #7044bf;
+}
+
+.gestion-state-badge.waiting i {
+  background: #8657db;
+}
+
+.gestion-state-badge.resolved {
+  border: 1px solid #bde5dc;
+  background: #ecfaf6;
+  color: #14866f;
+}
+
+.gestion-state-badge.resolved i {
+  background: #159d84;
+}
+
+.gestion-tech-avatar,
+.gestion-small-avatar {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #071934;
+  color: #ffffff;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-tech-avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 9px;
+}
+
+.gestion-small-avatar {
+  width: 25px;
+  height: 25px;
+  font-size: 8px;
+}
+
+.gestion-technician-cell > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.gestion-technician-cell strong {
+  color: #17243b;
+  font-size: 11px;
+}
+
+.gestion-technician-cell small {
+  color: #76859a;
+  font-size: 9px;
+}
+
+.gestion-unassigned-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gestion-unassigned-cell > span {
+  color: #697990;
+  font-size: 11px;
+}
+
+.gestion-unassigned-cell > button {
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid #199b83;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #168c78;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gestion-assign-menu {
+  width: 225px;
+  padding: 13px;
+  border: 1px solid #dfe6ee;
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.15);
+  position: absolute;
+  top: 38px;
+  left: 66px;
+  z-index: 80;
+}
+
+.gestion-assign-menu h3 {
+  margin: 0 0 12px;
+  color: #53627a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gestion-technician-search {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #dce3eb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.gestion-technician-search svg {
+  color: #8a98ac;
+}
+
+.gestion-technician-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #35445c;
+  font-size: 10px;
+}
+
+.gestion-technician-list {
+  max-height: 235px;
+  margin-top: 9px;
+  overflow-y: auto;
+}
+
+.gestion-technician-list button {
+  width: 100%;
+  min-height: 34px;
+  padding: 4px 3px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 27px 1fr auto;
+  align-items: center;
+  gap: 7px;
+  text-align: left;
+}
+
+.gestion-technician-list button:hover {
+  background: #f1f7f6;
+}
+
+.gestion-technician-list strong {
+  color: #35445c;
+  font-size: 10px;
+}
+
+.gestion-technician-list small {
+  color: #77869b;
+  font-size: 9px;
+}
+
+.gestion-reporter-cell > span {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #eef2f6;
+  color: #687990;
+  font-size: 8px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-reporter-cell strong {
+  color: #53627a;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.gestion-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gestion-row-actions > button,
+.gestion-more-wrapper > button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #dce3eb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #2583dc;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-more-wrapper {
+  position: relative;
+}
+
+.gestion-more-wrapper > button {
+  color: #52637a;
+}
+
+.gestion-row-actions button:hover {
+  background: #f1f7fa;
+}
+
+.gestion-row-menu {
+  width: 135px;
+  padding: 6px;
+  border: 1px solid #dfe6ee;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.15);
+  position: absolute;
+  top: 38px;
+  right: 0;
+  z-index: 70;
+}
+
+.gestion-row-menu button {
+  width: 100%;
+  min-height: 32px;
+  padding: 0 9px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #45556c;
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.gestion-row-menu button:hover {
+  background: #f2f6f8;
+}
+
+.gestion-row-menu button:last-child {
+  color: #dc3d3d;
+}
+
+.gestion-empty-table {
+  height: 120px !important;
+  color: #8b98ab !important;
+  text-align: center;
+}
+
+.gestion-table-footer {
+  min-height: 66px;
+  padding: 0 18px;
+  border-top: 1px solid #e7ecf2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.gestion-table-footer p {
+  margin: 0;
+  color: #66768d;
+  font-size: 11px;
+}
+
+.gestion-pagination-area {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.gestion-pagination-area select {
+  height: 36px;
+  padding: 0 38px 0 13px;
+  border: 1px solid #dce3eb;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #35445c;
+  font-size: 11px;
+  outline: none;
+}
+
+.gestion-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gestion-pagination button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #dce3eb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #35445c;
+  font-size: 11px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-pagination button.active {
+  border-color: #159d84;
+  background: #159d84;
+  color: #ffffff;
+}
+
+.gestion-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* MODAL */
+
+.gestion-ticket-modal-overlay {
+  position: fixed;
+  inset: 0;
+  padding: 20px;
+  background: rgba(7, 25, 52, 0.42);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.gestion-ticket-modal {
+  width: min(480px, 100%);
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.23);
+}
+
+.gestion-ticket-modal-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #e4eaf1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gestion-ticket-modal-header h2 {
+  margin: 0;
+  color: #17243b;
+  font-size: 18px;
+}
+
+.gestion-ticket-modal-header p {
+  margin: 4px 0 0;
+  color: #8794a8;
+  font-size: 11px;
+}
+
+.gestion-ticket-modal-header button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 7px;
+  background: #f1f5f8;
+  color: #52637a;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.gestion-ticket-modal-body {
+  padding: 22px;
+}
+
+.gestion-ticket-modal-body p {
+  margin: 0 0 13px;
+  color: #596980;
+  font-size: 12px;
+}
+
+.gestion-ticket-modal-body strong {
+  color: #17243b;
+}
+
+.gestion-ticket-modal-footer {
+  padding: 15px 22px;
+  border-top: 1px solid #e4eaf1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gestion-ticket-modal-footer button {
+  height: 36px;
+  padding: 0 17px;
+  border: none;
+  border-radius: 7px;
+  background: #159d84;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .gestion-table-card {
+    margin: 18px;
+  }
+
+  .gestion-table-footer {
+    padding: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gestion-pagination-area {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gestion-pagination-area {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .gestion-pagination {
+    overflow-x: auto;
+  }
+}
