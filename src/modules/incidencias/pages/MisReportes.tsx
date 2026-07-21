@@ -515,6 +515,7 @@ function MisReportes() {
 
                   <button
                     type="button"
+                    className="my-reports-settings-button"
                     onClick={() => {
                       setMostrarPerfil(false);
                       navigate("/configuracion");

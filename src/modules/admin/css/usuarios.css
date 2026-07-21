@@ -1133,3 +1133,385 @@
     gap: 12px;
   }
 }
+
+/* =========================================================
+   HEADER DE GESTIÓN DE USUARIOS
+========================================================= */
+
+.usuarios-topbar {
+  width: 100%;
+  min-height: 82px;
+  padding: 0 28px;
+  border-top: 1px solid #172033;
+  border-bottom: 1px solid #e1e6ed;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 100;
+}
+
+.usuarios-header-title {
+  min-width: 0;
+}
+
+.usuarios-header-title h1 {
+  margin: 0;
+  color: #071a35;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.45px;
+}
+
+.usuarios-header-title p {
+  margin: 10px 0 0;
+  color: #7f8da3;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.usuarios-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   BOTÓN ACTUALIZAR
+========================================================= */
+
+.usuarios-refresh-btn {
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #159b83;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #168e79;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.usuarios-refresh-btn:hover {
+  background: #eff9f7;
+  color: #0e7e6a;
+}
+
+/* =========================================================
+   NOTIFICACIONES
+========================================================= */
+
+.usuarios-notification-wrapper,
+.usuarios-profile-wrapper {
+  position: relative;
+}
+
+.usuarios-notification-btn {
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #31455f;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.usuarios-notification-btn:hover {
+  background: #f3f7f8;
+  color: #159b83;
+}
+
+.usuarios-notification-btn > span {
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #16a085;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  display: grid;
+  place-items: center;
+}
+
+.usuarios-notifications-menu {
+  width: 290px;
+  padding: 12px;
+  top: calc(100% + 8px);
+  right: -45px;
+  border: 1px solid #dce3eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  z-index: 210;
+}
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.usuarios-profile-btn {
+  min-width: 190px;
+  min-height: 54px;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: #17243a;
+  font-family: inherit;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 41px minmax(0, 1fr) 17px;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.usuarios-profile-btn:hover,
+.usuarios-profile-btn.active {
+  background: #f8fafc;
+}
+
+.usuarios-admin-avatar {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background: #071a35;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.usuarios-admin-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.usuarios-admin-info strong {
+  max-width: 116px;
+  overflow: hidden;
+  color: #142139;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.usuarios-admin-info small {
+  margin-top: 4px;
+  color: #7f8da1;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.usuarios-profile-arrow {
+  color: #52647b;
+  transition: transform 0.2s ease;
+}
+
+.usuarios-profile-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   MENÚ DEL PERFIL
+========================================================= */
+
+.usuarios-profile-menu {
+  width: 205px;
+  padding: 8px;
+  top: calc(100% + 6px);
+  right: 0;
+  border: 1px solid #dce3eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  z-index: 220;
+}
+
+.usuarios-profile-option {
+  width: 100%;
+  min-height: 41px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #405069;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.usuarios-profile-option:hover {
+  background: #f1f6f7;
+  color: #168e79;
+}
+
+.usuarios-settings-option {
+  background: #edf4f5;
+  color: #079477;
+}
+
+.usuarios-settings-option:hover {
+  background: #e2efed;
+  color: #087e68;
+}
+
+.usuarios-profile-divider {
+  height: 1px;
+  margin: 6px 2px;
+  background: #e2e8ed;
+}
+
+.usuarios-logout-option {
+  color: #ef3f4b;
+}
+
+.usuarios-logout-option:hover {
+  background: #fff1f2;
+  color: #dc2634;
+}
+
+@media (max-width: 760px) {
+  .usuarios-topbar {
+    padding: 16px 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .usuarios-top-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .usuarios-refresh-btn {
+    margin-right: auto;
+  }
+
+  .usuarios-profile-btn {
+    width: 42px;
+    min-width: 42px;
+    padding: 1px;
+    grid-template-columns: 40px;
+  }
+
+  .usuarios-admin-info,
+  .usuarios-profile-arrow {
+    display: none;
+  }
+
+  .usuarios-profile-menu {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+  }
+}
+
+/* =========================================================
+   AJUSTE: DESCRIPCIÓN Y BOTONES DENTRO DEL HEADER
+========================================================= */
+
+.usuarios-topbar {
+  min-height: 102px;
+}
+
+.usuarios-header-title {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.usuarios-header-description {
+  margin: 6px 0 0 !important;
+  color: #7b889c !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.usuarios-header-date {
+  margin-top: 5px;
+  color: #8a97aa;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.usuarios-header-export,
+.usuarios-header-new {
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.usuarios-header-export {
+  min-width: 104px;
+}
+
+.usuarios-header-new {
+  min-width: 168px;
+}
+
+/* Ya no se utiliza el encabezado interno del contenido. */
+.usuarios-content {
+  padding-top: 24px;
+}
+
+@media (max-width: 1050px) {
+  .usuarios-topbar {
+    padding: 16px 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .usuarios-top-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .usuarios-header-export,
+  .usuarios-header-new {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .usuarios-top-actions {
+    align-items: stretch;
+  }
+
+  .usuarios-header-export,
+  .usuarios-header-new,
+  .usuarios-refresh-btn {
+    flex: 1 1 140px;
+    justify-content: center;
+  }
+}

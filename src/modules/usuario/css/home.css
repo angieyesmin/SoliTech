@@ -673,3 +673,59 @@
 .home-notification-dot::after {
   content: "3";
 }
+
+
+.user-box-container {
+    position: relative;
+}
+
+.user-box {
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    background: #ffffff;
+    border: 1px solid #d9dee7;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+}
+
+.profile-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #334155;
+    transition: 0.3s;
+}
+
+.profile-item:hover {
+    background: #f3f4f6;
+}
+
+.profile-item.active {
+    background: #eef5f4;
+    color: #0f766e;
+}
+
+.profile-item.logout {
+    color: #ef4444;
+}
+
+.profile-menu hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 10px 0;
+}

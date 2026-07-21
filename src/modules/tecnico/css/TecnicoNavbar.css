@@ -1,198 +1,247 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* =========================================
+   SIDEBAR PRINCIPAL DEL TÉCNICO
+========================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+.tecnico-sidebar {
+  width: 223px;
+  min-width: 223px;
+  height: 100vh;
+
+  padding: 0;
+
+  background: #172653;
+  color: #ffffff;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.tecnico-sidebar{
-    width:220px;
-    min-height:100vh;
-    background:#0f1b2d;
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    border-right:1px solid rgba(255,255,255,.06);
-    font-family:"Inter",sans-serif;
+/* =========================================
+   ENCABEZADO Y LOGO
+========================================= */
+
+.tecnico-header {
+  height: 102px;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
 }
 
-/* ==========================
-   HEADER
-========================== */
+.tecnico-logo {
+  width: 36px;
+  height: 36px;
 
-.tecnico-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:20px 18px;
+  border-radius: 9px;
+
+  object-fit: cover;
+
+  background: #ffffff;
 }
 
-.tecnico-logo{
-    width:36px;
-    height:36px;
-    border-radius:10px;
-    background:#27b59d;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:16px;
-    font-weight:700;
-    color:#fff;
+.tecnico-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 27px;
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
 }
 
-.tecnico-header h2{
-    font-size:17px;
-    font-weight:700;
-    color:#fff;
+/* =========================================
+   LÍNEA DIVISORIA
+========================================= */
+
+.tecnico-divider {
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.8);
 }
 
-.tecnico-header span{
-    display:block;
-    margin-top:2px;
-    font-size:11px;
-    color:#28b89d;
-    letter-spacing:1px;
-    font-weight:700;
+/* =========================================
+   TÍTULO DEL MENÚ
+========================================= */
+
+.tecnico-menu-title {
+  margin: 46px 14px 11px;
+
+  color: #6e8ecc;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
-.tecnico-divider{
-    width:100%;
-    height:1px;
-    background:rgba(255,255,255,.08);
+/* =========================================
+   CONTENEDOR DEL MENÚ
+========================================= */
+
+.tecnico-menu {
+  padding: 0 6px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
 }
 
-/* ==========================
-   MENÚ
-========================== */
+/* =========================================
+   OPCIONES DEL MENÚ
+========================================= */
 
-.tecnico-menu-title{
-    margin:16px 18px 14px;
-    color:#5e6b82;
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:700;
+.tecnico-item {
+  width: 100%;
+  min-height: 47px;
+
+  padding: 0 18px;
+
+  border-radius: 14px;
+
+  color: #d8e1f5;
+  text-decoration: none;
+
+  display: grid;
+  grid-template-columns: 21px 1fr auto;
+  align-items: center;
+
+  gap: 11px;
+
+  position: relative;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.tecnico-menu{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    padding:0 10px;
-    flex:1;
+.tecnico-item svg {
+  color: #9bb6e8;
+
+  transition: color 0.2s ease;
 }
 
-.tecnico-item{
-    height:44px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:0 14px;
-    color:#b9c3d3;
-    text-decoration:none;
-    transition:.25s;
-    font-size:15px;
-    font-weight:500;
+.tecnico-item:hover {
+  background: rgba(22, 83, 123, 0.35);
+  color: #ffffff;
 }
 
-.tecnico-item svg{
-    width:18px;
-    height:18px;
+.tecnico-item:hover svg {
+  color: #2ee2c5;
 }
 
-.tecnico-item:hover{
-    background:#17263d;
-    color:white;
+/* =========================================
+   OPCIÓN ACTIVA
+========================================= */
+
+.tecnico-item.active {
+  background: #153f63;
+  color: #31e2c4;
 }
 
-.tecnico-item.active{
-    background:#27b59d;
-    color:white;
-    font-weight:700;
-    box-shadow:0 8px 18px rgba(39,181,157,.28);
+.tecnico-item.active svg {
+  color: #31e2c4;
 }
 
-.ticket-count{
-    margin-left:auto;
-    width:24px;
-    height:24px;
-    border-radius:50%;
-    background:rgba(255,255,255,.18);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:12px;
-    font-weight:700;
+/* Barra vertical turquesa de la opción activa */
+
+.tecnico-active-bar {
+  width: 4px;
+  height: 23px;
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  position: absolute;
+  top: 50%;
+  right: 12px;
+
+  transform: translateY(-50%);
 }
 
-/* ==========================
-   FOOTER
-========================== */
-
-.tecnico-footer{
-    border-top:1px solid rgba(255,255,255,.08);
-    padding:18px;
-    display:flex;
-    align-items:center;
-    gap:12px;
+.tecnico-item.active .tecnico-active-bar {
+  background: #28dfc1;
 }
 
-.perfil-avatar{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:#27b59d;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-weight:700;
-    font-size:13px;
+/* =========================================
+   CONTADOR DE TICKETS
+========================================= */
+
+.ticket-count {
+  min-width: 23px;
+  height: 23px;
+
+  padding: 0 7px;
+
+  border-radius: 999px;
+
+  background: #27466f;
+  color: #dbeafe;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 13px;
 }
 
-.tecnico-footer h4{
-    color:white;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:2px;
+.tecnico-item.active .ticket-count {
+  background: #19aa93;
+  color: #ffffff;
 }
 
-.tecnico-footer p{
-    color:#8c98ab;
-    font-size:12px;
-}
-
-/* ==========================
+/* =========================================
    RESPONSIVE
-========================== */
+========================================= */
 
-@media(max-width:900px){
+@media (max-width: 800px) {
+  .tecnico-sidebar {
+    width: 78px;
+    min-width: 78px;
+  }
 
-    .tecnico-sidebar{
-        width:80px;
-    }
+  .tecnico-header {
+    justify-content: center;
+    padding: 0;
+  }
 
-    .tecnico-header h2,
-    .tecnico-header span,
-    .tecnico-menu-title,
-    .tecnico-item span,
-    .ticket-count,
-    .tecnico-footer div:last-child{
-        display:none;
-    }
+  .tecnico-header h2,
+  .tecnico-menu-title,
+  .tecnico-item span,
+  .ticket-count {
+    display: none;
+  }
 
-    .tecnico-header{
-        justify-content:center;
-    }
+  .tecnico-menu {
+    padding: 0 10px;
+  }
 
-    .tecnico-item{
-        justify-content:center;
-        padding:0;
-    }
+  .tecnico-item {
+    padding: 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 
-    .tecnico-footer{
-        justify-content:center;
-    }
+  .tecnico-active-bar {
+    right: 5px;
+  }
 }

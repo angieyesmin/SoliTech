@@ -18,6 +18,7 @@ import {
   LogOut,
   MoreVertical,
   Plus,
+  RefreshCw,
   Search,
   Settings,
   ShieldCheck,
@@ -412,6 +413,19 @@ function Usuarios() {
     URL.revokeObjectURL(url);
   };
 
+  const actualizarUsuarios = () => {
+    window.location.reload();
+  };
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("recordarSesion");
+    localStorage.removeItem("token");
+
+    setMostrarPerfil(false);
+    navigate("/login");
+  };
+
   const cerrarMenus = () => {
     setMostrarNotificaciones(false);
     setMostrarPerfil(false);
@@ -427,29 +441,59 @@ function Usuarios() {
         onClick={cerrarMenus}
       >
         <header className="usuarios-topbar">
-          <div className="usuarios-breadcrumb">
-            <span>SoliTech</span>
-            <b>›</b>
-            <span>Administración</span>
-            <b>›</b>
-            <strong>Gestión de Usuarios</strong>
+          <div className="usuarios-header-title">
+            <h1>Gestión de Usuarios</h1>
+
+            <p className="usuarios-header-description">
+              Administra los permisos y accesos de los usuarios del sistema SoliTech.
+            </p>
+
+            <span className="usuarios-header-date">
+              Viernes 27 de junio de 2026
+            </span>
           </div>
 
           <div className="usuarios-top-actions">
-            <div className="usuarios-top-search">
-              <Search size={15} />
+            {/* EXPORTAR */}
+            <button
+              type="button"
+              className="usuarios-export-btn usuarios-header-export"
+              onClick={(evento) => {
+                evento.stopPropagation();
+                exportarUsuarios();
+              }}
+            >
+              <Download size={16} />
+              Exportar
+            </button>
 
-              <input
-                type="text"
-                placeholder="Buscar..."
-                value={busqueda}
-                onChange={(evento) => {
-                  setBusqueda(evento.target.value);
-                  setPaginaActual(1);
-                }}
-              />
-            </div>
+            {/* NUEVO USUARIO */}
+            <button
+              type="button"
+              className="usuarios-new-btn usuarios-header-new"
+              onClick={(evento) => {
+                evento.stopPropagation();
+                abrirNuevoUsuario();
+              }}
+            >
+              <Plus size={17} />
+              Nuevo Usuario
+            </button>
 
+            {/* ACTUALIZAR */}
+            <button
+              type="button"
+              className="usuarios-refresh-btn"
+              onClick={(evento) => {
+                evento.stopPropagation();
+                actualizarUsuarios();
+              }}
+            >
+              <RefreshCw size={17} strokeWidth={1.9} />
+              Actualizar
+            </button>
+
+            {/* NOTIFICACIONES */}
             <div className="usuarios-notification-wrapper">
               <button
                 type="button"
@@ -465,9 +509,10 @@ function Usuarios() {
                   setMenuUsuario(null);
                 }}
                 aria-label="Abrir notificaciones"
+                aria-expanded={mostrarNotificaciones}
               >
-                <Bell size={19} />
-                <span>2</span>
+                <Bell size={19} strokeWidth={1.8} />
+                <span>3</span>
               </button>
 
               {mostrarNotificaciones && (
@@ -485,40 +530,40 @@ function Usuarios() {
                       onClick={() =>
                         setMostrarNotificaciones(false)
                       }
+                      aria-label="Cerrar notificaciones"
                     >
                       <X size={16} />
                     </button>
                   </div>
 
                   <div className="usuarios-notification-item">
-                    <span className="notification-green"></span>
+                    <span className="notification-green" />
 
                     <div>
                       <strong>Nuevo usuario</strong>
-                      <p>
-                        Se registró una nueva cuenta.
-                      </p>
+                      <p>Se registró una nueva cuenta.</p>
                     </div>
                   </div>
 
                   <div className="usuarios-notification-item">
-                    <span className="notification-orange"></span>
+                    <span className="notification-orange" />
 
                     <div>
                       <strong>Cuenta inactiva</strong>
-                      <p>
-                        Hay una cuenta que requiere revisión.
-                      </p>
+                      <p>Hay una cuenta que requiere revisión.</p>
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
+            {/* PERFIL */}
             <div className="usuarios-profile-wrapper">
               <button
                 type="button"
-                className="usuarios-profile-btn"
+                className={`usuarios-profile-btn ${
+                  mostrarPerfil ? "active" : ""
+                }`}
                 onClick={(evento) => {
                   evento.stopPropagation();
 
@@ -529,17 +574,25 @@ function Usuarios() {
                   setMostrarNotificaciones(false);
                   setMenuUsuario(null);
                 }}
+                aria-label="Abrir menú del perfil"
+                aria-expanded={mostrarPerfil}
               >
                 <span className="usuarios-admin-avatar">
-                  AR
+                  RP
                 </span>
 
                 <span className="usuarios-admin-info">
-                  <strong>Alex Rivera</strong>
+                  <strong>Ricardo Pacheco</strong>
                   <small>Administrador</small>
                 </span>
 
-                <ChevronDown size={15} />
+                <ChevronDown
+                  size={16}
+                  strokeWidth={2}
+                  className={`usuarios-profile-arrow ${
+                    mostrarPerfil ? "open" : ""
+                  }`}
+                />
               </button>
 
               {mostrarPerfil && (
@@ -549,36 +602,17 @@ function Usuarios() {
                     evento.stopPropagation()
                   }
                 >
-                  <button
-                    type="button"
-                    onClick={() =>
-                      navigate("/perfil")
-                    }
-                  >
-                    <User size={15} />
-                    Mi perfil
-                  </button>
+             
+
+                  <div className="usuarios-profile-divider" />
 
                   <button
                     type="button"
-                    onClick={() =>
-                      navigate("/configuracion")
-                    }
+                    className="usuarios-profile-option usuarios-logout-option"
+                    onClick={cerrarSesion}
                   >
-                    <Settings size={15} />
-                    Configuración
-                  </button>
-
-                  <button
-                    type="button"
-                    className="logout"
-                    onClick={() => {
-                      localStorage.clear();
-                      navigate("/");
-                    }}
-                  >
-                    <LogOut size={15} />
-                    Cerrar sesión
+                    <LogOut size={17} strokeWidth={1.8} />
+                    <span>Cerrar sesión</span>
                   </button>
                 </div>
               )}
@@ -587,37 +621,6 @@ function Usuarios() {
         </header>
 
         <section className="usuarios-content">
-          <div className="usuarios-heading">
-            <div>
-              <h1>Gestión de Usuarios</h1>
-
-              <p>
-                Administra los permisos y accesos de los
-                usuarios del sistema SoliTech.
-              </p>
-            </div>
-
-            <div className="usuarios-heading-buttons">
-              <button
-                type="button"
-                className="usuarios-export-btn"
-                onClick={exportarUsuarios}
-              >
-                <Download size={16} />
-                Exportar
-              </button>
-
-              <button
-                type="button"
-                className="usuarios-new-btn"
-                onClick={abrirNuevoUsuario}
-              >
-                <Plus size={17} />
-                Nuevo Usuario
-              </button>
-            </div>
-          </div>
-
           <section className="usuarios-filter-panel">
             <div className="usuarios-main-search">
               <Search size={17} />

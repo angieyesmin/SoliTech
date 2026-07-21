@@ -7,11 +7,15 @@ import {
   Activity,
   AlertTriangle,
   Bell,
+  ChevronDown,
   Clock3,
+  LogOut,
   Monitor,
   RefreshCw,
   Server,
+  Settings,
   Ticket,
+  User,
   UserRound,
   Wrench,
 } from "lucide-react";
@@ -41,6 +45,12 @@ function DashboardAdmin() {
 
   const [tecnicoSeleccionado, setTecnicoSeleccionado] =
     useState<string>("");
+
+  const [mostrarPerfil, setMostrarPerfil] =
+    useState(false);
+
+  const [mostrarNotificaciones, setMostrarNotificaciones] =
+    useState(false);
 
   const ticketsRecientes: TicketReciente[] = [
     {
@@ -166,52 +176,182 @@ function DashboardAdmin() {
     window.location.reload();
   };
 
-  const mostrarNotificaciones = () => {
-    alert("Tienes 4 notificaciones pendientes.");
+  const cerrarMenus = () => {
+    setMostrarPerfil(false);
+    setMostrarNotificaciones(false);
+  };
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("recordarSesion");
+    localStorage.removeItem("token");
+
+    setMostrarPerfil(false);
+    navigate("/login");
   };
 
   return (
     <div className="layout">
       <AdminNavbar />
 
-      <main className="dashboard-admin-container">
+      <main
+        className="dashboard-admin-container"
+        onClick={cerrarMenus}
+      >
         <header className="dashboard-admin-header">
           <div className="dashboard-admin-title">
-            <div className="dashboard-title-icon">
-              <Activity size={20} />
-            </div>
-
             <div>
-              <h1>Dashboard Administrativo</h1>
+              <h1>DashboardAdmin</h1>
 
-              <p>
-                Viernes 27 de junio de 2026 · Semana 26
-              </p>
+              <p>Viernes 27 de junio de 2026</p>
             </div>
           </div>
 
           <div className="dashboard-header-actions">
+            {/* ACTUALIZAR */}
             <button
               type="button"
               className="dashboard-refresh-button"
-              onClick={actualizarDashboard}
+              onClick={(evento) => {
+                evento.stopPropagation();
+                actualizarDashboard();
+              }}
             >
-              <RefreshCw size={16} />
+              <RefreshCw size={17} strokeWidth={1.9} />
               Actualizar
             </button>
 
-            <button
-              type="button"
-              className="dashboard-notification-button"
-              aria-label="Abrir notificaciones"
-              onClick={mostrarNotificaciones}
-            >
-              <Bell size={18} />
-              <span>4</span>
-            </button>
+            {/* NOTIFICACIONES */}
+            <div className="dashboard-notification-wrapper">
+              <button
+                type="button"
+                className="dashboard-notification-button"
+                aria-label="Abrir notificaciones"
+                aria-expanded={mostrarNotificaciones}
+                onClick={(evento) => {
+                  evento.stopPropagation();
 
-            <div className="dashboard-admin-avatar">
-              AD
+                  setMostrarNotificaciones(
+                    (actual) => !actual
+                  );
+
+                  setMostrarPerfil(false);
+                }}
+              >
+                <Bell size={19} strokeWidth={1.8} />
+                <span>3</span>
+              </button>
+
+              {mostrarNotificaciones && (
+                <div
+                  className="dashboard-notification-menu"
+                  onClick={(evento) =>
+                    evento.stopPropagation()
+                  }
+                >
+                  <div className="dashboard-menu-heading">
+                    <strong>Notificaciones</strong>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setMostrarNotificaciones(false)
+                      }
+                      aria-label="Cerrar notificaciones"
+                    >
+                      ×
+                    </button>
+                  </div>
+
+                  <div className="dashboard-notification-item">
+                    <i className="notification-blue" />
+
+                    <div>
+                      <strong>Ticket en proceso</strong>
+                      <p>TKT-0479 fue asignado a Ricardo Pacheco.</p>
+                    </div>
+                  </div>
+
+                  <div className="dashboard-notification-item">
+                    <i className="notification-orange" />
+
+                    <div>
+                      <strong>Ticket sin asignar</strong>
+                      <p>TKT-0481 requiere un técnico.</p>
+                    </div>
+                  </div>
+
+                  <div className="dashboard-notification-item">
+                    <i className="notification-green" />
+
+                    <div>
+                      <strong>Ticket resuelto</strong>
+                      <p>TKT-0474 fue marcado como resuelto.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* PERFIL */}
+            <div className="admin-profile-wrapper">
+              <button
+                type="button"
+                className={`admin-profile-button ${
+                  mostrarPerfil ? "active" : ""
+                }`}
+                aria-label="Abrir menú del perfil"
+                aria-expanded={mostrarPerfil}
+                onClick={(evento) => {
+                  evento.stopPropagation();
+
+                  setMostrarPerfil(
+                    (actual) => !actual
+                  );
+
+                  setMostrarNotificaciones(false);
+                }}
+              >
+                <span className="dashboard-admin-avatar">
+                  RP
+                </span>
+
+                <span className="admin-profile-info">
+                  <strong>Ricardo Pacheco</strong>
+                  <small>Administrador</small>
+                </span>
+
+                <ChevronDown
+                  size={16}
+                  strokeWidth={2}
+                  className={`admin-profile-arrow ${
+                    mostrarPerfil ? "open" : ""
+                  }`}
+                />
+              </button>
+
+              {mostrarPerfil && (
+                <div
+                  className="admin-profile-menu"
+                  onClick={(evento) =>
+                    evento.stopPropagation()
+                  }
+                >
+             
+                  
+
+                  <div className="admin-profile-divider" />
+
+                  <button
+                    type="button"
+                    className="admin-profile-option admin-logout-option"
+                    onClick={cerrarSesion}
+                  >
+                    <LogOut size={17} strokeWidth={1.8} />
+                    <span>Cerrar sesión</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </header>

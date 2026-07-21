@@ -565,15 +565,7 @@ function Gestiondetickets() {
                     event.stopPropagation()
                   }
                 >
-                  <button type="button">
-                    <User size={16} />
-                    Mi perfil
-                  </button>
-
-                  <button type="button">
-                    <Settings size={16} />
-                    Configuración
-                  </button>
+               
 
                   <button
                     type="button"

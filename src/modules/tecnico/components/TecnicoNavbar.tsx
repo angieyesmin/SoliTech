@@ -1,73 +1,87 @@
 import { NavLink } from "react-router-dom";
-import { Home, Ticket, History } from "lucide-react";
+import {
+  Home,
+  Ticket,
+  History,
+} from "lucide-react";
+
 import logo from "../assets/logo.jpeg";
 import "../css/TecnicoNavbar.css";
 
-const TecnicoNavbar: React.FC = () => {
+function TecnicoNavbar() {
   return (
     <aside className="tecnico-sidebar">
-      {/* Logo */}
-
+      {/* ================= LOGO ================= */}
       <div className="tecnico-header">
-        <img src={logo} alt="Logo" className="logo" />
+        <img
+          src={logo}
+          alt="Logo de SoliTech"
+          className="tecnico-logo"
+        />
 
-        <div>
-          <h2>SoliTech</h2>
-          <span>TÉCNICO</span>
-        </div>
+        <h2>SoliTech</h2>
       </div>
 
-      <div className="tecnico-divider"></div>
+      {/* Línea divisoria */}
+      <div className="tecnico-divider" />
 
-      <p className="tecnico-menu-title">NAVEGACIÓN</p>
+      {/* ================= MENÚ ================= */}
+      <p className="tecnico-menu-title">
+        MENÚ PRINCIPAL
+      </p>
 
       <nav className="tecnico-menu">
         <NavLink
           to="/Dashboardtecnico"
           className={({ isActive }) =>
-            isActive ? "tecnico-item active" : "tecnico-item"
+            isActive
+              ? "tecnico-item active"
+              : "tecnico-item"
           }
         >
-          <Home size={18} />
+          <Home size={19} strokeWidth={1.8} />
 
           <span>Inicio</span>
+
+          <i className="tecnico-active-bar" />
         </NavLink>
 
         <NavLink
           to="/Ticketsasignado"
           className={({ isActive }) =>
-            isActive ? "tecnico-item active" : "tecnico-item"
+            isActive
+              ? "tecnico-item active"
+              : "tecnico-item"
           }
         >
-          <Ticket size={18} />
+          <Ticket size={19} strokeWidth={1.8} />
 
           <span>Tickets Asignados</span>
 
-          <div className="ticket-count">8</div>
+          <span className="ticket-count">
+            8
+          </span>
+
+          <i className="tecnico-active-bar" />
         </NavLink>
 
         <NavLink
           to="/HistorialEstados"
           className={({ isActive }) =>
-            isActive ? "tecnico-item active" : "tecnico-item"
+            isActive
+              ? "tecnico-item active"
+              : "tecnico-item"
           }
         >
-          <History size={18} />
+          <History size={19} strokeWidth={1.8} />
 
           <span>Historial</span>
+
+          <i className="tecnico-active-bar" />
         </NavLink>
       </nav>
-
-      <div className="tecnico-footer">
-        <div className="perfil-avatar">RP</div>
-
-        <div>
-          <h4>Ricardo Pacheco</h4>
-          <p>Técnico de Soporte</p>
-        </div>
-      </div>
     </aside>
   );
-};
+}
 
 export default TecnicoNavbar;

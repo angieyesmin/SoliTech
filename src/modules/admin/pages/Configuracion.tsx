@@ -3,6 +3,7 @@ import {
   useState,
   type ChangeEvent,
 } from "react";
+import { useNavigate } from "react-router-dom";
 
 import AdminNavbar from "../components/AdminNavbar";
 import "../css/Configuracion.css";
@@ -10,15 +11,20 @@ import "../css/Configuracion.css";
 import {
   Bell,
   Check,
+  ChevronDown,
   Clock3,
   Globe2,
   Image as ImageIcon,
   Info,
+  LogOut,
   Mail,
+  RefreshCw,
   RotateCcw,
   Save,
+  Settings,
   ShieldCheck,
   Upload,
+  User,
   Users,
   X,
 } from "lucide-react";
@@ -111,6 +117,8 @@ const permisosIniciales: PermisosRol = {
 ===================================================== */
 
 function Configuracion() {
+  const navigate = useNavigate();
+
   const archivoLogoRef =
     useRef<HTMLInputElement | null>(null);
 
@@ -143,6 +151,9 @@ function Configuracion() {
     setMostrarNotificacionesHeader,
   ] = useState(false);
 
+  const [mostrarPerfil, setMostrarPerfil] =
+    useState(false);
+
   const [
     notificacionesHeaderLeidas,
     setNotificacionesHeaderLeidas,
@@ -154,6 +165,24 @@ function Configuracion() {
   /* =====================================================
      FUNCIONES GENERALES
   ===================================================== */
+
+  const actualizarConfiguracion = () => {
+    window.location.reload();
+  };
+
+  const cerrarMenusHeader = () => {
+    setMostrarNotificacionesHeader(false);
+    setMostrarPerfil(false);
+  };
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("recordarSesion");
+    localStorage.removeItem("token");
+
+    setMostrarPerfil(false);
+    navigate("/login");
+  };
 
   const marcarCambiosPendientes = () => {
     setMensajeGuardado("Cambios sin guardar");
@@ -1205,47 +1234,67 @@ const renderizarRoles = () => (
     <div className="layout">
       <AdminNavbar />
 
-      <main className="system-config-container">
+      <main
+        className="system-config-container"
+        onClick={cerrarMenusHeader}
+      >
         <header className="system-config-header">
-          <div>
+          <div className="system-config-header-title">
             <h1>Configuración del Sistema</h1>
 
-            <p>
-              Viernes, 27 de junio de 2026 · Parámetros
-              globales
-            </p>
+            <p>Viernes 27 de junio de 2026</p>
           </div>
 
           <div className="system-config-header-actions">
+            {/* ACTUALIZAR */}
+            <button
+              type="button"
+              className="system-refresh-button"
+              onClick={(evento) => {
+                evento.stopPropagation();
+                actualizarConfiguracion();
+              }}
+            >
+              <RefreshCw size={17} strokeWidth={1.9} />
+              Actualizar
+            </button>
+
+            {/* NOTIFICACIONES */}
             <div className="system-notification-wrapper">
               <button
                 type="button"
                 className="system-notification-button"
-                onClick={() =>
+                aria-label="Abrir notificaciones"
+                aria-expanded={mostrarNotificacionesHeader}
+                onClick={(evento) => {
+                  evento.stopPropagation();
+
                   setMostrarNotificacionesHeader(
                     (estadoActual) => !estadoActual
-                  )
-                }
-                aria-label="Abrir notificaciones"
-              >
-                <Bell size={19} />
+                  );
 
-                {!notificacionesHeaderLeidas && (
-                  <span></span>
-                )}
+                  setMostrarPerfil(false);
+                }}
+              >
+                <Bell size={19} strokeWidth={1.8} />
+
+                <span>3</span>
               </button>
 
               {mostrarNotificacionesHeader && (
-                <div className="system-notification-menu">
+                <div
+                  className="system-notification-menu"
+                  onClick={(evento) =>
+                    evento.stopPropagation()
+                  }
+                >
                   <div className="system-notification-header">
                     <h3>Notificaciones</h3>
 
                     <button
                       type="button"
                       onClick={() =>
-                        setMostrarNotificacionesHeader(
-                          false
-                        )
+                        setMostrarNotificacionesHeader(false)
                       }
                       aria-label="Cerrar notificaciones"
                     >
@@ -1254,56 +1303,91 @@ const renderizarRoles = () => (
                   </div>
 
                   <div className="system-notification-entry">
-                    <span className="green"></span>
+                    <span className="green" />
 
                     <div>
-                      <strong>
-                        Configuración actualizada
-                      </strong>
+                      <strong>Configuración actualizada</strong>
 
                       <p>
-                        Los parámetros generales fueron
-                        modificados recientemente.
+                        Los parámetros generales fueron modificados recientemente.
                       </p>
                     </div>
                   </div>
 
                   <div className="system-notification-entry">
-                    <span className="orange"></span>
+                    <span className="orange" />
 
                     <div>
-                      <strong>
-                        Revisión recomendada
-                      </strong>
+                      <strong>Revisión recomendada</strong>
 
                       <p>
-                        Verifica los tiempos SLA de
-                        atención.
+                        Verifica los tiempos SLA de atención.
                       </p>
                     </div>
                   </div>
-
-                  <button
-                    type="button"
-                    className="system-mark-read"
-                    onClick={() => {
-                      setNotificacionesHeaderLeidas(
-                        true
-                      );
-
-                      setMostrarNotificacionesHeader(
-                        false
-                      );
-                    }}
-                  >
-                    Marcar como leídas
-                  </button>
                 </div>
               )}
             </div>
 
-            <div className="system-admin-avatar">
-              AD
+            {/* PERFIL */}
+            <div className="system-profile-wrapper">
+              <button
+                type="button"
+                className={`system-profile-button ${
+                  mostrarPerfil ? "active" : ""
+                }`}
+                aria-label="Abrir menú del perfil"
+                aria-expanded={mostrarPerfil}
+                onClick={(evento) => {
+                  evento.stopPropagation();
+
+                  setMostrarPerfil(
+                    (estadoActual) => !estadoActual
+                  );
+
+                  setMostrarNotificacionesHeader(false);
+                }}
+              >
+                <span className="system-admin-avatar">
+                  RP
+                </span>
+
+                <span className="system-profile-info">
+                  <strong>Ricardo Pacheco</strong>
+                  <small>Administrador</small>
+                </span>
+
+                <ChevronDown
+                  size={16}
+                  strokeWidth={2}
+                  className={`system-profile-arrow ${
+                    mostrarPerfil ? "open" : ""
+                  }`}
+                />
+              </button>
+
+              {mostrarPerfil && (
+                <div
+                  className="system-profile-menu"
+                  onClick={(evento) =>
+                    evento.stopPropagation()
+                  }
+                >
+                  
+                
+
+                  <div className="system-profile-divider" />
+
+                  <button
+                    type="button"
+                    className="system-profile-option system-logout-option"
+                    onClick={cerrarSesion}
+                  >
+                    <LogOut size={17} strokeWidth={1.8} />
+                    <span>Cerrar sesión</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </header>

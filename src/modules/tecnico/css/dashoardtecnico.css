@@ -1,35 +1,12 @@
-@import url(
-  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-);
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-button {
-  font-family: inherit;
-}
-
-.layout {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  background: #f5f7fb;
-}
-
 /* =========================================
-   CONTENEDOR
+   CONTENEDOR DEL DASHBOARD
 ========================================= */
 
-.dashboard-tecnico-container {
-  flex: 1;
-  min-width: 0;
+.dashboard-tecnico {
+  width: calc(100% - 223px);
   min-height: 100vh;
-  background: #f5f7fb;
-  color: #0a1a31;
-  font-family: "Inter", sans-serif;
+  margin-left: 223px;
+  background: #f8fafc;
 }
 
 /* =========================================
@@ -37,213 +14,172 @@ button {
 ========================================= */
 
 .dashboard-tecnico-header {
-  min-height: 77px;
-  padding: 0 28px;
-  border-bottom: 1px solid #dfe4eb;
+  width: 100%;
+  min-height: 88px;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid #e2e8f0;
+
   background: #ffffff;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 24px;
 }
 
-.dashboard-tecnico-header h1 {
+/* =========================================
+   TÍTULO Y FECHA
+========================================= */
+
+.dashboard-header-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard-header-left h1 {
   margin: 0;
-  color: #0a1a31;
-  font-size: 27px;
+
+  color: #07182f;
+
+  font-size: 23px;
   font-weight: 800;
+  line-height: 1.1;
 }
 
-.dashboard-tecnico-actions {
+.dashboard-header-left p {
+  margin: 8px 0 0;
+
+  color: #7e8ba0;
+
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* =========================================
+   ZONA DERECHA
+========================================= */
+
+.dashboard-header-right {
   display: flex;
   align-items: center;
-  gap: 22px;
-}
 
-.dashboard-tecnico-actions > p {
-  margin: 0 7px 0 0;
-  color: #535f70;
-  font-size: 13px;
+  gap: 20px;
 }
 
 /* =========================================
    NOTIFICACIONES
 ========================================= */
 
-.dashboard-tecnico-notification-wrapper,
-.dashboard-tecnico-profile-wrapper {
-  position: relative;
-}
+.dashboard-notification-button {
+  width: 43px;
+  height: 43px;
 
-.dashboard-tecnico-notification-button {
-  width: 49px;
-  height: 49px;
   padding: 0;
-  border: 1px solid #dce3ea;
-  border-radius: 17px;
-  background: #ffffff;
-  color: #132239;
-  cursor: pointer;
-  position: relative;
-  display: grid;
-  place-items: center;
-  transition: 0.2s ease;
-}
 
-.dashboard-tecnico-notification-button:hover {
-  border-color: #129a80;
-  color: #129a80;
-}
-
-.dashboard-tecnico-notification-button > span {
-  min-width: 21px;
-  height: 21px;
-  padding: 0 5px;
-  border: 2px solid #ffffff;
-  border-radius: 999px;
-  background: #149d83;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  display: grid;
-  place-items: center;
-}
-
-.dashboard-tecnico-notification-menu,
-.dashboard-tecnico-profile-menu {
-  border: 1px solid #dfe5ec;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
-  position: absolute;
-  top: 58px;
-  right: 0;
-  z-index: 100;
-}
-
-.dashboard-tecnico-notification-menu {
-  width: 300px;
-  padding: 13px;
-}
-
-.dashboard-tecnico-menu-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e7ebf0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.dashboard-tecnico-menu-header h3 {
-  margin: 0;
-  font-size: 13px;
-}
-
-.dashboard-tecnico-menu-header button {
-  width: 28px;
-  height: 28px;
-  padding: 0;
   border: none;
-  border-radius: 8px;
-  background: #f1f4f7;
-  color: #536176;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #0c2945;
+
   cursor: pointer;
+
+  position: relative;
+
   display: grid;
   place-items: center;
 }
 
-.dashboard-tecnico-notification-item {
-  padding: 12px 2px;
-  border-bottom: 1px solid #edf1f5;
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
+.dashboard-notification-button:hover {
+  background: #f3f6f8;
 }
 
-.dashboard-tecnico-notification-item:last-child {
-  border-bottom: none;
-}
+.dashboard-notification-button span {
+  width: 18px;
+  height: 18px;
 
-.dashboard-tecnico-notification-item > span {
-  width: 8px;
-  height: 8px;
-  margin-top: 5px;
+  border: 2px solid #ffffff;
   border-radius: 50%;
-  flex-shrink: 0;
-}
 
-.notification-green {
-  background: #149d83;
-}
+  background: #15997a;
+  color: #ffffff;
 
-.notification-orange {
-  background: #e8a124;
-}
-
-.notification-blue {
-  background: #368fdb;
-}
-
-.dashboard-tecnico-notification-item strong {
-  font-size: 11px;
-}
-
-.dashboard-tecnico-notification-item p {
-  margin: 4px 0 0;
-  color: #7b8799;
   font-size: 9px;
-  line-height: 1.5;
+  font-weight: 800;
+
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  display: grid;
+  place-items: center;
 }
 
 /* =========================================
    PERFIL
 ========================================= */
 
-.dashboard-tecnico-profile-button {
+.dashboard-profile-button {
   padding: 0;
+
   border: none;
+
   background: transparent;
-  color: #132239;
+  color: #102039;
+
   cursor: pointer;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 40px 1fr 16px;
   align-items: center;
-  gap: 10px;
+
+  gap: 12px;
+
+  text-align: left;
 }
 
-.dashboard-tecnico-avatar {
-  width: 57px;
-  height: 57px;
+.dashboard-profile-avatar {
+  width: 40px;
+  height: 40px;
+
   border-radius: 50%;
-  background: #149d83;
+
+  background: #071d3b;
   color: #ffffff;
-  font-size: 21px;
-  font-weight: 700;
+
+  font-size: 12px;
+  font-weight: 800;
+
   display: grid;
   place-items: center;
 }
 
-.dashboard-tecnico-profile-menu {
-  width: 155px;
-  padding: 7px;
+.dashboard-profile-info {
+  min-width: 145px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.dashboard-tecnico-profile-menu button {
-  width: 100%;
-  padding: 10px 11px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  color: #334155;
-  text-align: left;
+.dashboard-profile-info strong {
+  color: #18243a;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.dashboard-profile-info small {
+  margin-top: 4px;
+
+  color: #718096;
+
   font-size: 11px;
-  cursor: pointer;
-}
-
-.dashboard-tecnico-profile-menu button:hover {
-  background: #eef8f5;
-  color: #149d83;
 }
 
 /* =========================================
@@ -251,458 +187,611 @@ button {
 ========================================= */
 
 .dashboard-tecnico-content {
-  padding: 20px 24px 30px;
+  padding: 28px 30px;
 }
 
-.dashboard-tecnico-welcome {
-  margin-bottom: 24px;
-}
-
-.dashboard-tecnico-welcome h2 {
+.dashboard-tecnico-content h2 {
   margin: 0;
-  color: #0a1a31;
-  font-size: 25px;
+
+  color: #10213b;
+
+  font-size: 27px;
   font-weight: 800;
 }
 
-.dashboard-tecnico-welcome p {
-  margin: 6px 0 0;
-  color: #4e5b6d;
-  font-size: 12px;
+.dashboard-tecnico-content p {
+  margin: 8px 0 0;
+
+  color: #69778a;
+
+  font-size: 14px;
 }
 
 /* =========================================
-   TARJETAS
+   RESPONSIVE
 ========================================= */
 
-.dashboard-tecnico-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 17px;
+@media (max-width: 800px) {
+  .dashboard-tecnico {
+    width: calc(100% - 78px);
+    margin-left: 78px;
+  }
+
+  .dashboard-tecnico-header {
+    min-height: 72px;
+    padding: 0 16px;
+  }
+
+  .dashboard-header-left h1 {
+    font-size: 19px;
+  }
+
+  .dashboard-profile-info {
+    display: none;
+  }
+
+  .dashboard-profile-button {
+    grid-template-columns: 40px 16px;
+  }
 }
 
-.dashboard-tecnico-stat-card {
-  min-height: 122px;
-  padding: 17px 19px 22px;
-  border: 1px solid #dfe5ec;
-  border-radius: 12px;
+/* =========================================
+   BIENVENIDA
+========================================= */
+
+.dashboard-welcome {
+  margin-bottom: 24px;
+}
+
+.dashboard-welcome h2 {
+  margin: 0;
+  color: #0d1d35;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.dashboard-welcome p {
+  margin: 7px 0 0;
+  color: #647186;
+  font-size: 14px;
+}
+
+/* =========================================
+   TARJETAS DE ESTADÍSTICAS
+========================================= */
+
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dashboard-stat-card {
+  min-height: 136px;
+  padding: 18px 20px;
+  border: 1px solid #e0e5ea;
+  border-radius: 15px;
   background: #ffffff;
-  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.08);
-  position: relative;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-stat-main {
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-.dashboard-tecnico-stat-icon {
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: #e5f6f1;
-  color: #149d83;
+.dashboard-stat-icon {
+  width: 70px;
+  height: 70px;
   flex-shrink: 0;
+  border-radius: 50%;
+  background: #e5f7f2;
+  color: #129879;
   display: grid;
   place-items: center;
 }
 
-.dashboard-tecnico-stat-card strong {
-  display: block;
-  color: #07172d;
-  font-size: 38px;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.dashboard-tecnico-stat-card p {
-  margin: 7px 0 0;
-  color: #536176;
-  font-size: 11px;
-}
-
-.dashboard-tecnico-stat-line {
-  height: 3px;
-  border-radius: 999px;
-  background: #149d83;
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 15px;
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 1100px) {
-  .dashboard-tecnico-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .dashboard-tecnico-header {
-    padding: 13px 16px;
-  }
-
-  .dashboard-tecnico-header h1 {
-    font-size: 21px;
-  }
-
-  .dashboard-tecnico-actions > p {
-    display: none;
-  }
-
-  .dashboard-tecnico-avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
-  }
-
-  .dashboard-tecnico-content {
-    padding: 18px 15px;
-  }
-
-  .dashboard-tecnico-welcome h2 {
-    font-size: 20px;
-  }
-
-  .dashboard-tecnico-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-tecnico-notification-menu {
-    position: fixed;
-    top: 75px;
-    left: 15px;
-    right: 15px;
-    width: auto;
-  }
-}
-
-/* =========================================
-   BLOQUE DE TICKETS ASIGNADOS
-========================================= */
-
-.dashboard-tecnico-tickets-grid {
-  width: 100%;
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 20px;
-}
-
-/* =========================================
-   TARJETA IZQUIERDA
-========================================= */
-
-.dashboard-tecnico-banner {
-  min-height: 310px;
-  padding: 34px 38px;
-  border-radius: 12px;
-  background:
-    radial-gradient(
-      circle at 26% 40%,
-      rgba(21, 157, 132, 0.24),
-      transparent 34%
-    ),
-    linear-gradient(
-      135deg,
-      #061c33 0%,
-      #062a40 100%
-    );
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(6, 28, 51, 0.17);
-  overflow: hidden;
+.dashboard-stat-information {
   display: flex;
+  flex-direction: column;
+}
+
+.dashboard-stat-information strong {
+  color: #0c1d35;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dashboard-stat-information span {
+  margin-top: 8px;
+  color: #606c7d;
+  font-size: 14px;
+}
+
+.dashboard-stat-line {
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: #119a79;
+}
+
+/* =========================================
+   SECCIÓN INFERIOR
+========================================= */
+
+.dashboard-bottom {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(390px, 0.9fr) minmax(520px, 1.15fr);
+  gap: 22px;
+}
+
+/* =========================================
+   TARJETA AZUL
+========================================= */
+
+.tickets-card {
+  min-height: 342px;
+  padding: 28px 30px;
+  border-radius: 16px;
+  background: #052442;
+  color: #ffffff;
+  box-shadow: 0 9px 24px rgba(7, 32, 59, 0.16);
+  display: grid;
+  grid-template-columns: 185px 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 42px;
+  gap: 28px;
 }
 
-.dashboard-banner-illustration {
-  width: 165px;
-  height: 190px;
-  position: relative;
-  flex-shrink: 0;
+.tickets-image {
+  min-height: 205px;
+  border-radius: 20px;
+  background: rgba(16, 158, 123, 0.13);
+  color: #26b997;
   display: grid;
   place-items: center;
 }
 
-.dashboard-banner-clipboard {
-  width: 135px;
-  height: 165px;
-  border-radius: 19px;
-  background: linear-gradient(
-    145deg,
-    #178f79,
-    #315e66
-  );
-  color: #d6fff7;
-  box-shadow:
-    inset 0 0 0 10px rgba(255, 255, 255, 0.04),
-    0 12px 28px rgba(0, 0, 0, 0.18);
-  display: grid;
-  place-items: center;
-}
-
-.dashboard-banner-wrench {
-  width: 63px;
-  height: 63px;
-  border-radius: 50%;
-  background: #159d84;
-  color: #dcfff8;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-  position: absolute;
-  right: 0;
-  bottom: 4px;
-  display: grid;
-  place-items: center;
-}
-
-.dashboard-banner-information {
-  max-width: 210px;
-}
-
-.dashboard-banner-information h2 {
+.tickets-info h2 {
   margin: 0;
   color: #ffffff;
-  font-size: 28px;
-  line-height: 1.2;
+  font-size: 29px;
   font-weight: 800;
+  line-height: 1.25;
 }
 
-.dashboard-banner-information p {
-  margin: 25px 0 34px;
-  color: #c9d6df;
-  font-size: 13px;
+.tickets-info p {
+  margin: 23px 0;
+  color: #cad6e2;
+  font-size: 15px;
   line-height: 1.7;
 }
 
-.dashboard-banner-information button {
-  min-width: 195px;
-  height: 49px;
+.tickets-btn {
+  min-width: 215px;
+  height: 53px;
   padding: 0 22px;
   border: none;
-  border-radius: 8px;
-  background: #159d84;
+  border-radius: 10px;
+  background: #109f7c;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  justify-content: center;
+  gap: 18px;
 }
 
-.dashboard-banner-information button:hover {
-  background: #118570;
-  transform: translateY(-2px);
+.tickets-btn:hover {
+  background: #0b8769;
 }
 
 /* =========================================
-   TARJETA DERECHA
+   PRÓXIMOS POR ATENDER
 ========================================= */
 
-.dashboard-upcoming-card {
-  min-height: 310px;
-  padding: 18px 24px 10px;
-  border: 1px solid #dfe5ec;
-  border-radius: 12px;
+.next-tickets {
+  padding: 18px 21px;
+  border: 1px solid #e0e5ea;
+  border-radius: 16px;
   background: #ffffff;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
 }
 
-.dashboard-upcoming-header {
-  min-height: 38px;
-  border-bottom: 1px solid #edf1f5;
+.next-header {
+  min-height: 42px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 18px;
 }
 
-.dashboard-upcoming-header h2 {
+.next-header h2 {
   margin: 0;
-  color: #101d31;
-  font-size: 18px;
+  color: #102039;
+  font-size: 20px;
   font-weight: 800;
 }
 
-.dashboard-upcoming-header > button {
-  height: 30px;
-  padding: 0 12px;
-  border: 1px solid #e1e6ec;
+.next-header button {
+  height: 32px;
+  padding: 0 13px;
+  border: 1px solid #d8e0e7;
   border-radius: 999px;
   background: #ffffff;
-  color: #58677b;
-  font-size: 10px;
+  color: #647186;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
-  transition: 0.2s ease;
 }
 
-.dashboard-upcoming-header > button:hover {
-  border-color: #159d84;
-  color: #159d84;
+.next-header button:hover {
+  border-color: #159b79;
+  color: #159b79;
 }
 
-/* =========================================
-   FILAS DE TICKETS
-========================================= */
+.next-tickets-list {
+  margin-top: 3px;
+}
 
-.dashboard-upcoming-row {
-  min-height: 62px;
-  border-bottom: 1px solid #e8edf2;
+.ticket-row {
+  min-height: 70px;
+  padding: 9px 3px;
+  border-top: 1px solid #e8edf1;
   display: grid;
-  grid-template-columns:
-    50px
-    minmax(140px, 1fr)
-    65px
-    102px;
+  grid-template-columns: minmax(230px, 1fr) 86px 112px;
   align-items: center;
-  gap: 13px;
+  gap: 18px;
 }
 
-.dashboard-upcoming-row:last-child {
-  border-bottom: none;
+.ticket-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.dashboard-upcoming-icon {
-  width: 43px;
-  height: 43px;
-  border-radius: 9px;
-  background: #f1f4f7;
-  color: #15243a;
+.ticket-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f2f4f6;
+  color: #14233a;
   display: grid;
   place-items: center;
 }
 
-.dashboard-upcoming-info {
-  min-width: 0;
-}
-
-.dashboard-upcoming-info strong {
-  display: block;
-  color: #101d31;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.dashboard-upcoming-info p {
-  margin: 5px 0 0;
-  color: #536176;
-  font-size: 11px;
-}
-
-.dashboard-ticket-priority {
-  padding: 8px 11px;
-  border-radius: 6px;
-  text-align: center;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.dashboard-ticket-priority.high {
-  background: #ffd8d5;
-  color: #d94f49;
-}
-
-.dashboard-ticket-priority.medium {
-  background: #ffe6cb;
-  color: #d9892c;
-}
-
-.dashboard-attend-button {
-  height: 38px;
-  border: 1px solid #159d84;
-  border-radius: 7px;
-  background: #ffffff;
-  color: #159d84;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    color 0.2s ease,
-    background 0.2s ease;
-}
-
-.dashboard-attend-button:hover {
-  background: #159d84;
-  color: #ffffff;
-}
-
-/* =========================================
-   ESTADO VACÍO
-========================================= */
-
-.dashboard-empty-tickets {
-  min-height: 230px;
-  color: #159d84;
-  text-align: center;
+.ticket-left > div {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 
-.dashboard-empty-tickets h3 {
-  margin: 13px 0 0;
-  color: #101d31;
-  font-size: 15px;
+.ticket-left strong {
+  color: #18253d;
+  font-size: 14px;
+  font-weight: 800;
 }
 
-.dashboard-empty-tickets p {
-  margin: 7px 0 0;
-  color: #7b8799;
-  font-size: 11px;
+.ticket-left div span {
+  margin-top: 5px;
+  color: #657286;
+  font-size: 13px;
+}
+
+.priority {
+  width: 65px;
+  height: 33px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.priority.alta {
+  background: #ffd5d3;
+  color: #d4514e;
+}
+
+.priority.media {
+  background: #ffe1bf;
+  color: #d47c19;
+}
+
+.attend-btn {
+  width: 109px;
+  height: 40px;
+  border: 1.5px solid #159b79;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #159b79;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.attend-btn:hover {
+  background: #159b79;
+  color: #ffffff;
 }
 
 /* =========================================
    RESPONSIVE
 ========================================= */
 
-@media (max-width: 1150px) {
-  .dashboard-tecnico-tickets-grid {
+@media (max-width: 1200px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-bottom {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 700px) {
-  .dashboard-tecnico-banner {
-    padding: 30px 22px;
-    flex-direction: column;
-    gap: 20px;
+@media (max-width: 680px) {
+  .dashboard-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tickets-card {
+    grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .dashboard-banner-information {
-    max-width: none;
-    width: 100%;
-  }
-
-  .dashboard-banner-information button {
+  .tickets-btn {
     margin: 0 auto;
   }
 
-  .dashboard-upcoming-card {
-    padding: 16px;
+  .ticket-row {
+    grid-template-columns: 1fr auto;
   }
 
-  .dashboard-upcoming-row {
-    padding: 12px 0;
-    grid-template-columns: 45px minmax(0, 1fr) auto;
+  .ticket-row .attend-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+/* =========================================
+   PRODUCTIVIDAD SEMANAL
+========================================= */
+
+.productivity-card {
+  width: 100%;
+  min-height: 245px;
+
+  margin-top: 22px;
+  padding: 20px 25px 16px;
+
+  border: 1px solid #e0e5ea;
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.05),
+    0 10px 24px rgba(15, 23, 42, 0.035);
+}
+
+/* Encabezado de la gráfica */
+
+.productivity-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.productivity-header h2 {
+  margin: 0;
+
+  color: #102039;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.productivity-header p {
+  margin: 6px 0 0;
+
+  color: #687589;
+
+  font-size: 13px;
+}
+
+/* Icono superior derecho */
+
+.productivity-header-icon {
+  width: 57px;
+  height: 57px;
+
+  border-radius: 12px;
+
+  background: #e6f6f2;
+  color: #119777;
+
+  display: grid;
+  place-items: center;
+}
+
+/* Contenedor de la gráfica */
+
+.productivity-chart {
+  height: 155px;
+
+  margin-top: 10px;
+
+  display: grid;
+  grid-template-columns: 30px 1fr;
+
+  gap: 8px;
+}
+
+/* Números laterales */
+
+.productivity-scale {
+  height: 126px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: #6c7788;
+
+  font-size: 12px;
+}
+
+/* Área interna */
+
+.productivity-chart-area {
+  height: 150px;
+
+  position: relative;
+}
+
+/* Líneas horizontales */
+
+.productivity-grid-line {
+  width: 100%;
+  height: 1px;
+
+  background: #e7ebef;
+
+  position: absolute;
+  left: 0;
+}
+
+.productivity-grid-line.line-top {
+  top: 0;
+}
+
+.productivity-grid-line.line-middle {
+  top: 62px;
+}
+
+.productivity-grid-line.line-bottom {
+  top: 125px;
+}
+
+/* Columnas */
+
+.productivity-bars {
+  height: 150px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 30px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.productivity-column {
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Área disponible para cada barra */
+
+.productivity-bar-area {
+  width: 100%;
+  max-width: 82px;
+  height: 126px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: relative;
+}
+
+/* Número encima de la barra */
+
+.productivity-bar-area strong {
+  margin-bottom: 5px;
+
+  color: #1b273b;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Barra verde */
+
+.productivity-bar {
+  width: 100%;
+  min-height: 5px;
+
+  border-radius: 5px 5px 0 0;
+
+  background: linear-gradient(
+    180deg,
+    #149d7c 0%,
+    #0f9072 100%
+  );
+
+  box-shadow: 0 3px 7px rgba(15, 144, 114, 0.16);
+
+  transition:
+    height 0.4s ease,
+    filter 0.2s ease;
+}
+
+.productivity-column:hover .productivity-bar {
+  filter: brightness(1.06);
+}
+
+/* Día debajo de la gráfica */
+
+.productivity-day {
+  margin-top: 7px;
+
+  color: #677386;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================
+   RESPONSIVE DE LA GRÁFICA
+========================================= */
+
+@media (max-width: 800px) {
+  .productivity-card {
+    overflow-x: auto;
   }
 
-  .dashboard-ticket-priority {
-    grid-column: 3;
+  .productivity-chart {
+    min-width: 620px;
+  }
+}
+
+@media (max-width: 520px) {
+  .productivity-card {
+    padding: 17px 16px 14px;
   }
 
-  .dashboard-attend-button {
-    grid-column: 2 / -1;
+  .productivity-header h2 {
+    font-size: 17px;
+  }
+
+  .productivity-header-icon {
+    width: 48px;
+    height: 48px;
   }
 }

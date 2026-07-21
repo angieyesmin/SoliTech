@@ -917,3 +917,303 @@
     width: 100%;
   }
 }
+
+/* =========================================================
+   HEADER ACTUALIZADO: INVENTARIO DE EQUIPAMIENTO
+========================================================= */
+
+.inventario-header {
+  width: 100%;
+  min-height: 82px;
+  padding: 0 28px;
+  border-top: 1px solid #172033;
+  border-bottom: 1px solid #e1e6ed;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 100;
+}
+
+.inventario-header-title {
+  min-width: 0;
+}
+
+.inventario-header-title h1 {
+  margin: 0;
+  color: #071a35;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.45px;
+}
+
+.inventario-header-title p {
+  margin: 10px 0 0;
+  color: #7f8da3;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.inventario-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* BOTÓN ACTUALIZAR */
+
+.inventario-refresh-button {
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #159b83;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #168e79;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.inventario-refresh-button:hover {
+  background: #eff9f7;
+  color: #0e7e6a;
+}
+
+/* EXPORTAR Y NUEVO EQUIPO */
+
+.inventario-export-button,
+.inventario-new-button {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 18px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.inventario-export-button {
+  border: 1px solid #d8e0e9;
+  background: #ffffff;
+  color: #52637a;
+}
+
+.inventario-new-button {
+  min-width: 132px;
+  border: none;
+  background: #18a58c;
+  color: #ffffff;
+  box-shadow: 0 5px 14px rgba(24, 165, 140, 0.2);
+}
+
+/* NOTIFICACIONES */
+
+.inventario-notification-wrapper,
+.inventario-profile-wrapper {
+  position: relative;
+}
+
+.inventario-notification-button {
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #31455f;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.inventario-notification-button:hover {
+  background: #f3f7f8;
+  color: #159b83;
+}
+
+.inventario-notification-button > span {
+  min-width: 16px;
+  width: auto;
+  height: 16px;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #16a085;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  display: grid;
+  place-items: center;
+}
+
+.inventario-notifications {
+  top: calc(100% + 8px);
+  right: -45px;
+}
+
+/* PERFIL */
+
+.inventario-profile-button {
+  min-width: 190px;
+  min-height: 54px;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: #17243a;
+  font-family: inherit;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 41px minmax(0, 1fr) 17px;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.inventario-profile-button:hover,
+.inventario-profile-button.active {
+  background: #f8fafc;
+}
+
+.inventario-profile-avatar {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background: #071a35;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.inventario-profile-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inventario-profile-info strong {
+  max-width: 116px;
+  overflow: hidden;
+  color: #142139;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inventario-profile-info small {
+  margin-top: 4px;
+  color: #7f8da1;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.inventario-profile-arrow {
+  color: #52647b;
+  transition: transform 0.2s ease;
+}
+
+.inventario-profile-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* MENÚ: SOLO CERRAR SESIÓN */
+
+.inventario-profile-menu {
+  width: 205px;
+  padding: 8px;
+  top: calc(100% + 6px);
+  right: 0;
+  border: 1px solid #dce3eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  z-index: 220;
+}
+
+.inventario-profile-option {
+  width: 100%;
+  min-height: 41px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #405069;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.inventario-logout-option {
+  color: #ef3f4b;
+}
+
+.inventario-logout-option:hover {
+  background: #fff1f2;
+  color: #dc2634;
+}
+
+@media (max-width: 1100px) {
+  .inventario-header {
+    padding: 16px 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .inventario-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 760px) {
+  .inventario-refresh-button,
+  .inventario-export-button,
+  .inventario-new-button {
+    flex: 1 1 135px;
+  }
+
+  .inventario-profile-button {
+    width: 42px;
+    min-width: 42px;
+    padding: 1px;
+    grid-template-columns: 40px;
+  }
+
+  .inventario-profile-info,
+  .inventario-profile-arrow {
+    display: none;
+  }
+
+  .inventario-profile-menu {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+  }
+}

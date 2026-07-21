@@ -2484,3 +2484,307 @@ button {
 .role-pro-card li.disabled svg {
   color: #cbd5e1;
 }
+
+/* =========================================================
+   HEADER ACTUALIZADO: CONFIGURACIÓN DEL SISTEMA
+========================================================= */
+
+.system-config-header {
+  width: 100%;
+  min-height: 82px;
+  padding: 0 28px;
+  border-top: 1px solid #172033;
+  border-bottom: 1px solid #e1e6ed;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 100;
+}
+
+.system-config-header-title {
+  min-width: 0;
+}
+
+.system-config-header-title h1 {
+  margin: 0;
+  color: #071a35;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.45px;
+}
+
+.system-config-header-title p {
+  margin: 10px 0 0;
+  color: #7f8da3;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.system-config-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* =========================================================
+   BOTÓN ACTUALIZAR
+========================================================= */
+
+.system-refresh-button {
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #159b83;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #168e79;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.system-refresh-button:hover {
+  background: #eff9f7;
+  color: #0e7e6a;
+}
+
+/* =========================================================
+   NOTIFICACIONES
+========================================================= */
+
+.system-notification-wrapper,
+.system-profile-wrapper {
+  position: relative;
+}
+
+.system-notification-button {
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #31455f;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.system-notification-button:hover {
+  background: #f3f7f8;
+  color: #159b83;
+}
+
+.system-notification-button > span {
+  min-width: 16px;
+  width: auto;
+  height: 16px;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #16a085;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  display: grid;
+  place-items: center;
+}
+
+.system-notification-menu {
+  width: 290px;
+  padding: 12px;
+  top: calc(100% + 8px);
+  right: -45px;
+  border: 1px solid #dce3eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  z-index: 210;
+}
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.system-profile-button {
+  min-width: 190px;
+  min-height: 54px;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: #17243a;
+  font-family: inherit;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 41px minmax(0, 1fr) 17px;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.system-profile-button:hover,
+.system-profile-button.active {
+  background: #f8fafc;
+}
+
+.system-admin-avatar {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background: #071a35;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.system-profile-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.system-profile-info strong {
+  max-width: 116px;
+  overflow: hidden;
+  color: #142139;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.system-profile-info small {
+  margin-top: 4px;
+  color: #7f8da1;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.system-profile-arrow {
+  color: #52647b;
+  transition: transform 0.2s ease;
+}
+
+.system-profile-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   MENÚ DEL PERFIL
+========================================================= */
+
+.system-profile-menu {
+  width: 205px;
+  padding: 8px;
+  top: calc(100% + 6px);
+  right: 0;
+  border: 1px solid #dce3eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  position: absolute;
+  z-index: 220;
+}
+
+.system-profile-option {
+  width: 100%;
+  min-height: 41px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #405069;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.system-profile-option:hover {
+  background: #f1f6f7;
+  color: #168e79;
+}
+
+.system-settings-option {
+  background: #edf4f5;
+  color: #079477;
+}
+
+.system-settings-option:hover {
+  background: #e2efed;
+  color: #087e68;
+}
+
+.system-profile-divider {
+  height: 1px;
+  margin: 6px 2px;
+  background: #e2e8ed;
+}
+
+.system-logout-option {
+  color: #ef3f4b;
+}
+
+.system-logout-option:hover {
+  background: #fff1f2;
+  color: #dc2634;
+}
+
+@media (max-width: 760px) {
+  .system-config-header {
+    padding: 16px 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .system-config-header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .system-refresh-button {
+    margin-right: auto;
+  }
+
+  .system-profile-button {
+    width: 42px;
+    min-width: 42px;
+    padding: 1px;
+    grid-template-columns: 40px;
+  }
+
+  .system-profile-info,
+  .system-profile-arrow {
+    display: none;
+  }
+
+  .system-profile-menu {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+  }
+}

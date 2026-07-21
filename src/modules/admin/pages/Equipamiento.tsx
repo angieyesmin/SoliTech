@@ -1,5 +1,6 @@
 import { useState,  useMemo } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 import AdminNavbar from "../components/AdminNavbar";
 import "../css/Equipamiento.css";
@@ -7,6 +8,7 @@ import "../css/Equipamiento.css";
 import {
   Bell,
   CheckCircle2,
+  ChevronDown,
   Download,
   Edit3,
   Eye,
@@ -14,9 +16,11 @@ import {
   Grid2X2,
   Laptop,
   List,
+  LogOut,
   Monitor,
   MoreHorizontal,
   Plus,
+  RefreshCw,
   Search,
   Server,
   Trash2,
@@ -156,6 +160,8 @@ const formularioInicial: FormularioEquipo = {
 };
 
 function Equipamiento() {
+  const navigate = useNavigate();
+
   const [equipos, setEquipos] =
     useState<Equipo[]>(equiposIniciales);
 
@@ -170,6 +176,9 @@ function Equipamiento() {
     useState<VistaInventario>("tabla");
 
   const [mostrarNotificaciones, setMostrarNotificaciones] =
+    useState(false);
+
+  const [mostrarPerfil, setMostrarPerfil] =
     useState(false);
 
   const [modalEquipo, setModalEquipo] = useState(false);
@@ -271,6 +280,25 @@ function Equipamiento() {
     }
 
     return <Wrench size={14} />;
+  };
+
+  const actualizarInventario = () => {
+    window.location.reload();
+  };
+
+  const cerrarMenusHeader = () => {
+    setMostrarNotificaciones(false);
+    setMostrarPerfil(false);
+    setMenuEquipo(null);
+  };
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("recordarSesion");
+    localStorage.removeItem("token");
+
+    setMostrarPerfil(false);
+    navigate("/login");
   };
 
   const abrirNuevoEquipo = () => {
@@ -496,37 +524,56 @@ function Equipamiento() {
 
       <main
         className="inventario-container"
-        onClick={() => setMenuEquipo(null)}
+        onClick={cerrarMenusHeader}
       >
         <header className="inventario-header">
-          <div>
+          <div className="inventario-header-title">
             <h1>Inventario de Equipamiento</h1>
 
-            <p>
-              Viernes, 27 de junio de 2026 ·{" "}
-              {equipos.length} equipos registrados
-            </p>
+            <p>Viernes 27 de junio de 2026</p>
           </div>
 
           <div className="inventario-header-actions">
+            {/* ACTUALIZAR */}
+            <button
+              type="button"
+              className="inventario-refresh-button"
+              onClick={(evento) => {
+                evento.stopPropagation();
+                actualizarInventario();
+              }}
+            >
+              <RefreshCw size={17} strokeWidth={1.9} />
+              Actualizar
+            </button>
+
+            {/* EXPORTAR */}
             <button
               type="button"
               className="inventario-export-button"
-              onClick={exportarEquipos}
+              onClick={(evento) => {
+                evento.stopPropagation();
+                exportarEquipos();
+              }}
             >
               <Download size={16} />
               Exportar
             </button>
 
+            {/* NUEVO EQUIPO */}
             <button
               type="button"
               className="inventario-new-button"
-              onClick={abrirNuevoEquipo}
+              onClick={(evento) => {
+                evento.stopPropagation();
+                abrirNuevoEquipo();
+              }}
             >
               <Plus size={17} />
               Nuevo Equipo
             </button>
 
+            {/* NOTIFICACIONES */}
             <div className="inventario-notification-wrapper">
               <button
                 type="button"
@@ -537,11 +584,14 @@ function Equipamiento() {
                   setMostrarNotificaciones(
                     (actual) => !actual
                   );
+
+                  setMostrarPerfil(false);
                 }}
                 aria-label="Abrir notificaciones"
+                aria-expanded={mostrarNotificaciones}
               >
-                <Bell size={18} />
-                <span></span>
+                <Bell size={19} strokeWidth={1.8} />
+                <span>3</span>
               </button>
 
               {mostrarNotificaciones && (
@@ -559,6 +609,7 @@ function Equipamiento() {
                       onClick={() =>
                         setMostrarNotificaciones(false)
                       }
+                      aria-label="Cerrar notificaciones"
                     >
                       <X size={16} />
                     </button>
@@ -568,12 +619,9 @@ function Equipamiento() {
                     <TriangleAlert size={16} />
 
                     <div>
-                      <strong>
-                        Equipos con fallas
-                      </strong>
+                      <strong>Equipos con fallas</strong>
                       <p>
-                        {conFalla} equipos requieren
-                        atención.
+                        {conFalla} equipos requieren atención.
                       </p>
                     </div>
                   </div>
@@ -582,12 +630,9 @@ function Equipamiento() {
                     <Wrench size={16} />
 
                     <div>
-                      <strong>
-                        Mantenimiento pendiente
-                      </strong>
+                      <strong>Mantenimiento pendiente</strong>
                       <p>
-                        Revisa el calendario de
-                        mantenimiento.
+                        Revisa el calendario de mantenimiento.
                       </p>
                     </div>
                   </div>
@@ -595,7 +640,61 @@ function Equipamiento() {
               )}
             </div>
 
-            <div className="inventario-avatar">AD</div>
+            {/* PERFIL */}
+            <div className="inventario-profile-wrapper">
+              <button
+                type="button"
+                className={`inventario-profile-button ${
+                  mostrarPerfil ? "active" : ""
+                }`}
+                onClick={(evento) => {
+                  evento.stopPropagation();
+
+                  setMostrarPerfil(
+                    (actual) => !actual
+                  );
+
+                  setMostrarNotificaciones(false);
+                }}
+                aria-label="Abrir menú del perfil"
+                aria-expanded={mostrarPerfil}
+              >
+                <span className="inventario-profile-avatar">
+                  RP
+                </span>
+
+                <span className="inventario-profile-info">
+                  <strong>Ricardo Pacheco</strong>
+                  <small>Administrador</small>
+                </span>
+
+                <ChevronDown
+                  size={16}
+                  strokeWidth={2}
+                  className={`inventario-profile-arrow ${
+                    mostrarPerfil ? "open" : ""
+                  }`}
+                />
+              </button>
+
+              {mostrarPerfil && (
+                <div
+                  className="inventario-profile-menu"
+                  onClick={(evento) =>
+                    evento.stopPropagation()
+                  }
+                >
+                  <button
+                    type="button"
+                    className="inventario-profile-option inventario-logout-option"
+                    onClick={cerrarSesion}
+                  >
+                    <LogOut size={17} strokeWidth={1.8} />
+                    <span>Cerrar sesión</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </header>
 
